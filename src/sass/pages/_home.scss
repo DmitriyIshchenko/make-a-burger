@@ -1,0 +1,29 @@
+.burger {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  width: 500px;
+  height: 500px;
+
+  &__ingredient {
+    &:not(:last-child) {
+      margin-bottom: -10%;
+      width: 100%;
+      opacity: 1;
+      transform: translate(0%, 0%);
+      transition: all 0.3s;
+    }
+
+    &--delete {
+      opacity: 0 !important;
+      transform: translate(100%, 0%) !important;
+    }
+  }
+}
+
+.ingredients {
+  display: flex;
+  gap: 20px;
+  margin-block: 10px;
+}
