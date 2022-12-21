@@ -1,0 +1,25 @@
+@keyframes drop {
+  0% {
+    margin-bottom: 100%;
+  }
+
+  90% {
+    margin-bottom: -40%;
+  }
+
+  100% {
+    margin-bottom: -20%;
+  }
+}
+
+@keyframes shiftLeft {
+  0% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}

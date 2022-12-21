@@ -5,19 +5,23 @@
   justify-content: end;
   width: 500px;
   height: 500px;
+  z-index: -10000;
 
   &__ingredient {
-    &:not(:last-child) {
-      margin-bottom: -10%;
-      width: 100%;
-      opacity: 1;
-      transform: translate(0%, 0%);
-      transition: all 0.3s;
+    margin-bottom: -25%;
+    width: 100%;
+    transition: all 0.3s;
+
+    &--new {
+      animation: drop 0.3s ease-in-out;
     }
 
     &--delete {
-      opacity: 0 !important;
-      transform: translate(100%, 0%) !important;
+      animation: shiftLeft 0.3s ease-in-out;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 }
