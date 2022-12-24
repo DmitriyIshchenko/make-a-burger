@@ -37,13 +37,13 @@ export const state = {
 
 export const addIngredient = function (name) {
   state.recipe.ingredients[name].quantity += 1;
-  state.recipe.order.unshift(name);
+  state.recipe.order.push(name);
 };
 
 export const deleteIngredient = function (name) {
   state.recipe.ingredients[name].quantity -= 1;
 
-  const index = state.recipe.order.findIndex((item) => item === name);
+  const index = state.recipe.order.findLastIndex((item) => item === name);
   state.recipe.order.splice(index, 1);
 
   return index;
