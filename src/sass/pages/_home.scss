@@ -1,15 +1,13 @@
 .burger {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
   width: 500px;
   height: 500px;
   z-index: -10000;
 
   &__ingredient {
-    margin-bottom: -25%;
+    position: absolute;
     width: 100%;
+    margin-bottom: 0;
     transition: all 0.3s;
 
     &--new {
@@ -20,8 +18,8 @@
       animation: shiftLeft 0.3s ease-in-out;
     }
 
-    &:last-child {
-      margin-bottom: 0;
+    &--top {
+      margin-bottom: -5%;
     }
   }
 }

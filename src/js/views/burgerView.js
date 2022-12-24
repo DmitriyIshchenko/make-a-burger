@@ -5,13 +5,25 @@ class BurgerView extends View {
   _parentElement = document.querySelector(".burger");
 
   animateDeleted(index) {
-    const images = this._parentElement.querySelectorAll(".burger__ingredient");
+    const images = Array.from(
+      this._parentElement.querySelectorAll(".burger__ingredient")
+    );
+
+    // shift to the left deleted element
     const target = images[index];
     target.classList.add("burger__ingredient--delete");
+
+    // move down ingredients on top of deleted ingredients
+    const ingredientsOnTop = images.slice(index + 1);
+    ingredientsOnTop.forEach((item) =>
+      item.classList.add("burger__ingredient--top")
+    );
   }
 
   animateNew() {
-    const img = this._parentElement.querySelector(".burger__ingredient");
+    const img = Array.from(
+      this._parentElement.querySelectorAll(".burger__ingredient")
+    ).at(-1);
     img.classList.add("burger__ingredient--new");
   }
 
@@ -23,7 +35,7 @@ class BurgerView extends View {
     return `
     <img 
       class="burger__ingredient burger__ingredient--${ing}" 
-      style="z-index:${-index}" 
+      style="z-index:${index};bottom:${index * 5}%" 
       src="${images[ing]}" 
       alt="${ing}"
     >
