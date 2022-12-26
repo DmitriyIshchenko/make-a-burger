@@ -11,6 +11,8 @@
   "author": "Dmitriy Ishchenko",
   "license": "ISC",
   "devDependencies": {
+    "@parcel/resolver-glob": "^2.8.2",
+    "@parcel/transformer-sass": "^2.8.2",
     "gh-pages": "^4.0.0",
     "parcel": "^2.8.2"
   }
