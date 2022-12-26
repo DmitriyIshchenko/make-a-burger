@@ -4,7 +4,6 @@ import icons from "../../img/sprite.svg";
 class SummaryView extends View {
   _parentElement = document.querySelector(".summary");
   _generateMarkup() {
-    console.log(icons);
     return ` 
     <h2 class="summary__heading">Summary</h2>
     <span class="summary__price">$${this._data.price.toFixed(2)}</span>
