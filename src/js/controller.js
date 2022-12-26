@@ -10,42 +10,38 @@ const controlBurger = function () {
   summaryView.render(model.getTotals());
 };
 
+let timeoutId;
 const controlIngredientQuantity = async function (name, updateTo) {
+  clearTimeout(timeoutId);
+
   const currentQt = model.state.recipe.ingredients[name].quantity;
   if (currentQt < updateTo) {
-    // ADD
-
-    // 1. Update model
-    model.addIngredient(name);
-
-    // 2. Render updated burger
-    burgerView.render(model.state.recipe.order);
-
-    // 3. Animate new ingredient AFTER DOM updated
-    burgerView.animateNew();
-
-    // 4. Render updated ingredient
-    ingredientsView.render(model.state.recipe.ingredients);
+    if (model.state.recipe.order.at(-1) === "bun-top")
+      await controlDeleteIngredient("bun-top");
+    controlAddIngredient(name);
   } else {
-    // DELETE
-
-    // 1. Update model
-    const index = model.deleteIngredient(name);
-
-    // 2. Animate deleted ingredient BEFORE rendering
-    burgerView.animateDeleted(index);
-
-    // 3. Render updated ingredients
-    ingredientsView.render(model.state.recipe.ingredients);
-
-    // 4. Wait until animation completes
-    await wait(0.2);
-
-    // 5. Render updated burger
-    burgerView.render(model.state.recipe.order);
+    controlDeleteIngredient(name);
   }
 
-  // Update summary
+  timeoutId = setTimeout(() => {
+    controlAddIngredient("bun-top");
+  }, 3000);
+};
+
+const controlAddIngredient = function (name) {
+  model.addIngredient(name);
+  burgerView.render(model.state.recipe.order);
+  burgerView.animateNew();
+  ingredientsView.render(model.state.recipe.ingredients);
+  summaryView.render(model.getTotals());
+};
+
+const controlDeleteIngredient = async function (name) {
+  const index = model.deleteIngredient(name);
+  burgerView.animateDeleted(index);
+  ingredientsView.render(model.state.recipe.ingredients);
+  await wait(0.2);
+  burgerView.render(model.state.recipe.order);
   summaryView.render(model.getTotals());
 };
 
