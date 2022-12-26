@@ -4,7 +4,7 @@ export const state = {
       "bun-top": {
         name: "bun-top",
         quantity: 0,
-        calories: 0,
+        calories: 128,
         mass: 46,
         time: 0.5,
         price: 1,
