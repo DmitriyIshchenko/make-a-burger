@@ -41,15 +41,15 @@ class ingredientsView extends View {
           class="card__btn btn-update-quantity" 
           data-update-to=${quantity - 1} 
           data-name=${name}
-          >-
+          >&minus;
           </button>
 
-        <span>${quantity}</span>
+        <span class="card__quantity">${quantity}</span>
 
         <button 
         class="card__btn btn-update-quantity" 
         data-update-to=${quantity + 1} 
-        data-name=${name}>+
+        data-name=${name}>&plus;
         </button>
       </div>
     </div>

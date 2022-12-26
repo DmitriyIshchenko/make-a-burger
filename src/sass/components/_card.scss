@@ -2,13 +2,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
-  width: 100px;
-  border: 1px solid lightblue;
-  border-radius: 5px;
+  gap: 2rem;
+  padding: 1.5rem;
+  width: 12rem;
+  border: 1px solid $color-grey-light-2;
+  border-radius: 2rem;
+  font-weight: 600;
 
   &__img-box {
-    height: 40px;
+    height: 4rem;
     display: flex;
     align-items: center;
   }
@@ -20,7 +22,12 @@
 
   &__controls {
     display: flex;
-    gap: 10px;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__btn {
+    @extend %btn-ingredient;
   }
 
   &__title {
