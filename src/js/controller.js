@@ -1,11 +1,13 @@
 import * as model from "./model";
 import burgerView from "./views/burgerView";
 import ingredientsView from "./views/ingredientsView";
+import summaryView from "./views/summaryView";
 import { wait } from "./helpers";
 
 const controlBurger = function () {
   burgerView.render(model.state.recipe.order);
   ingredientsView.render(model.state.recipe.ingredients);
+  summaryView.render(model.getTotals());
 };
 
 const controlIngredientQuantity = async function (name, updateTo) {
@@ -42,6 +44,9 @@ const controlIngredientQuantity = async function (name, updateTo) {
     // 5. Render updated burger
     burgerView.render(model.state.recipe.order);
   }
+
+  // Update summary
+  summaryView.render(model.getTotals());
 };
 
 const init = function () {
