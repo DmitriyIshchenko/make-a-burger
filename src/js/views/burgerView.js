@@ -2,7 +2,7 @@ import View from "./View";
 import images from "url:../../img/*.png";
 
 class BurgerView extends View {
-  _parentElement = document.querySelector(".burger");
+  _parentElement = document.querySelector(".burger__ingredients");
 
   animateDeleted(index) {
     const images = Array.from(

@@ -2,16 +2,11 @@ import * as model from "./model";
 import burgerView from "./views/burgerView";
 import ingredientsView from "./views/ingredientsView";
 import summaryView from "./views/summaryView";
+import tooltipView from "./views/tooltipView";
 import { wait } from "./helpers";
 
-const controlBurger = function () {
-  burgerView.render(model.state.recipe.order);
-  ingredientsView.render(model.state.recipe.ingredients);
-  summaryView.render(model.getTotals());
-};
-
 let timeoutId;
-const controlIngredientQuantity = async function (name, updateTo) {
+const controlBurger = async function (name, updateTo) {
   clearTimeout(timeoutId);
 
   const currentQt = model.state.recipe.ingredients[name].quantity;
@@ -22,6 +17,10 @@ const controlIngredientQuantity = async function (name, updateTo) {
   } else {
     controlDeleteIngredient(name);
   }
+
+  model.getTotals().calories > 1000
+    ? tooltipView.showTooltip()
+    : tooltipView.hideTooltip();
 
   timeoutId = setTimeout(() => {
     controlAddIngredient("bun-top");
@@ -46,8 +45,13 @@ const controlDeleteIngredient = async function (name) {
 };
 
 const init = function () {
-  window.addEventListener("load", controlBurger);
-  ingredientsView.addHandlerUpdateQuantity(controlIngredientQuantity);
+  window.addEventListener("load", () => {
+    burgerView.render(model.state.recipe.order);
+    ingredientsView.render(model.state.recipe.ingredients);
+    summaryView.render(model.getTotals());
+    tooltipView.render("");
+  });
+  ingredientsView.addHandlerUpdateQuantity(controlBurger);
 };
 
 init();
