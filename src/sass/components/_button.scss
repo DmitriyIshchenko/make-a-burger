@@ -1,0 +1,33 @@
+%btn {
+  display: block;
+  border: none;
+  border-radius: 100rem;
+  background-color: $color-blue;
+  transition: all $anim-duration;
+
+  font-family: inherit;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: $color-white;
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    background-color: lighten($color-blue, 5%);
+  }
+}
+
+%btn-ingredient {
+  @extend %btn;
+  height: 3rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: $color-grey-light-1;
+
+  font-size: 2rem;
+  color: $color-blue;
+
+  &:hover {
+    background-color: darken($color-grey-light-1, 5%);
+  }
+}
