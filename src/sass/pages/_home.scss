@@ -1,21 +1,44 @@
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.5rem;
+  align-items: center;
+}
+
 .burger {
+  grid-column: 2 / 3;
   position: relative;
-  width: 500px;
-  height: 500px;
+  height: 70vh;
   z-index: -10000;
+
+  // bg
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 110%;
+    left: -5%;
+    aspect-ratio: 1;
+    background-image: url("../img/bg.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: -100000;
+  }
 
   &__ingredient {
     position: absolute;
     width: 100%;
     margin-bottom: 0;
-    transition: all 0.3s;
+    transition: all $anim-duration;
 
     &--new {
-      animation: drop 0.3s ease-in-out;
+      animation: drop $anim-duration ease-in-out;
     }
 
     &--delete {
-      animation: shiftLeft 0.3s ease-in-out;
+      animation: shiftLeft $anim-duration ease-in-out;
     }
 
     &--top {
@@ -24,8 +47,103 @@
   }
 }
 
+.summary {
+  grid-column: 3 / 4;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+
+  &__heading {
+    grid-column: 1/-1;
+    margin-bottom: 1.5rem;
+  }
+
+  &__message {
+    grid-column: 1/-1;
+  }
+
+  &__details {
+    grid-column: 1/-1;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+
+    background-color: $color-grey-light-1;
+    padding: 1.5rem;
+    border-radius: 100rem;
+
+    & > * {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    font-weight: 600;
+  }
+
+  &__price {
+    grid-column: 1/2;
+
+    font-size: 3.6rem;
+    font-weight: 800;
+    line-height: 1.5;
+    color: $color-blue;
+  }
+
+  &__icon {
+    width: 3rem;
+    aspect-ratio: 1;
+    padding: 0.5rem;
+    border-radius: 50%;
+    fill: #fff;
+
+    &--time {
+      background-color: #b956f5;
+    }
+    &--mass {
+      background-color: #f58f56;
+    }
+    &--fire {
+      background-color: #ff4d4f;
+    }
+  }
+
+  &__btn {
+    grid-column: 2/3;
+    @extend %btn;
+  }
+}
+
 .ingredients {
+  margin: 0 auto;
+  grid-column: 1/-1;
+  grid-row: 2/3;
   display: flex;
   gap: 20px;
   margin-block: 10px;
+}
+
+.tooltip {
+  position: absolute;
+  z-index: 10000;
+  top: 5%;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 1rem 1.5rem;
+  box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  background-color: #fff;
+  transition: all $anim-duration;
+
+  font-weight: 600;
+
+  &__emoji {
+    width: 3rem;
+    height: 3rem;
+  }
 }

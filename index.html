@@ -5,11 +5,47 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/sass/main.scss" />
+  <script type="module" src="src/js/controller.js"></script>
+  <title>Burger</title>
 </head>
 
 <body>
-  INIT
+  <main class="container">
+    <h1 class="heading-primary">Make your burger</h1>
+
+    <section class="burger">
+      <div class="burger__ingredients"></div>
+      <div class="tooltip hidden"></div>
+    </section>
+
+    <section class="summary">
+      <h2>Summary</h2>
+      <span class="summary__price">$0</span>
+      <button class="summary__btn">Checkout</button>
+      <p>Build a <span>$10</span> burger and get a gift!</p>
+      <div class="summary__details">
+        <div class="summary__time">
+          <svg>
+            <use href="src/img/sprite.svg#time"></use>
+          </svg>
+          <span>0 min</span>
+        </div>
+        <div class="summary__mass">
+          <span>0 g</span>
+        </div>
+        <div class="summary__calories">
+          <span>0 kcal</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="ingredients">
+    </section>
+  </main>
 </body>
 
 </html>
