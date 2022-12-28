@@ -7,6 +7,14 @@
   align-items: center;
 }
 
+.tab {
+  display: none;
+
+  &--active {
+    display: grid;
+  }
+}
+
 .burger {
   grid-column: 2 / 3;
   position: relative;

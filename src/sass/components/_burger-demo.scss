@@ -1,0 +1,130 @@
+.burger-demo-box {
+  height: 70vh;
+  grid-column: 2 / 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.burger-demo {
+  position: relative;
+  width: 50%;
+  height: 80%;
+  margin-bottom: 0%;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: -15%;
+    height: 120%;
+    width: 150%;
+    background-image: url("../img/bg-main.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: -100000;
+  }
+
+  & > * {
+    position: absolute;
+    width: 100%;
+  }
+
+  &__bun-bottom {
+    bottom: 0;
+  }
+  &__bun-top {
+    bottom: 50%;
+  }
+  &__mayo {
+    &--1 {
+      bottom: 5%;
+    }
+    &--2 {
+      bottom: 40%;
+    }
+  }
+  &__salad {
+    &--1 {
+      bottom: 10%;
+    }
+    &--2 {
+      bottom: 30%;
+    }
+  }
+  &__cheese {
+    bottom: 12%;
+  }
+  &__onion {
+    width: 30%;
+
+    &--1 {
+      bottom: 20%;
+      left: 0%;
+    }
+    &--2 {
+      bottom: 20%;
+      left: 30%;
+    }
+    &--3 {
+      bottom: 20%;
+      left: 60%;
+    }
+
+    &--4 {
+      bottom: 40%;
+      left: 0%;
+    }
+    &--5 {
+      bottom: 40%;
+      left: 30%;
+    }
+    &--6 {
+      bottom: 40%;
+      left: 60%;
+    }
+  }
+  &__beef {
+    bottom: 20%;
+  }
+  &__tomato {
+    width: 40%;
+    &--1 {
+      bottom: 30%;
+      left: 0%;
+    }
+    &--2 {
+      bottom: 30%;
+      left: 30%;
+    }
+    &--3 {
+      bottom: 30%;
+      left: 60%;
+    }
+    &--4 {
+      bottom: 30%;
+      left: 60%;
+    }
+  }
+  &__pickle {
+    width: 40%;
+    &--1 {
+      bottom: 32%;
+    }
+    &--2 {
+      bottom: 32%;
+      left: 30%;
+    }
+    &--3 {
+      bottom: 32%;
+      left: 43%;
+    }
+    &--4 {
+      bottom: 42%;
+      left: 60%;
+    }
+    &--5 {
+      bottom: 42%;
+      left: 14%;
+    }
+  }
+}
