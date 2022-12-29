@@ -3,6 +3,7 @@ import burgerView from "./views/burgerView";
 import ingredientsView from "./views/ingredientsView";
 import summaryView from "./views/summaryView";
 import tooltipView from "./views/tooltipView";
+import tabsView from "./views/tabsView";
 import { wait } from "./helpers";
 
 let timeoutId;
