@@ -43,6 +43,7 @@
 
     &--new {
       animation: drop $anim-duration ease-in-out;
+      animation-fill-mode: forwards;
     }
 
     &--delete {
