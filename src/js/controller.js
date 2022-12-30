@@ -5,6 +5,11 @@ import summaryView from "./views/summaryView";
 import tooltipView from "./views/tooltipView";
 import tabsView from "./views/tabsView";
 import { wait } from "./helpers";
+import {
+  TOP_BUN_TIMEOUT_SEC,
+  ANIMATION_DURATION_SEC,
+  CALORIES_LIMIT_POPUP,
+} from "./config";
 
 let timeoutId;
 const controlBurger = async function (name, updateTo) {
@@ -19,13 +24,13 @@ const controlBurger = async function (name, updateTo) {
     controlDeleteIngredient(name);
   }
 
-  model.getTotals().calories > 1000
+  model.getTotals().calories > CALORIES_LIMIT_POPUP
     ? tooltipView.showTooltip()
     : tooltipView.hideTooltip();
 
   timeoutId = setTimeout(() => {
     controlAddIngredient("bun-top");
-  }, 3000);
+  }, TOP_BUN_TIMEOUT_SEC * 1000);
 };
 
 const controlAddIngredient = function (name) {
@@ -40,7 +45,7 @@ const controlDeleteIngredient = async function (name) {
   const index = model.deleteIngredient(name);
   burgerView.animateDeleted(index);
   ingredientsView.render(model.state.recipe.ingredients);
-  await wait(0.2);
+  await wait(ANIMATION_DURATION_SEC);
   burgerView.render(model.state.recipe.order);
   summaryView.render(model.getTotals());
 };
