@@ -55,7 +55,6 @@ const init = function () {
     burgerView.render(model.state.recipe.order);
     ingredientsView.render(model.state.recipe.ingredients);
     summaryView.render(model.getTotals());
-    tooltipView.render("");
   });
   ingredientsView.addHandlerUpdateQuantity(controlBurger);
 };

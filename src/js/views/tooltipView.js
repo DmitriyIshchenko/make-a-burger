@@ -1,7 +1,4 @@
-import View from "./View";
-import images from "url:../../img/*.png";
-
-class TooltipView extends View {
+class TooltipView {
   _parentElement = document.querySelector(".tooltip");
 
   showTooltip() {
@@ -10,13 +7,6 @@ class TooltipView extends View {
 
   hideTooltip() {
     this._parentElement.classList.add("hidden");
-  }
-
-  _generateMarkup() {
-    return `
-    <img class="tooltip__emoji" src="${images["emoji-shocked"]}">
-    <p>Are you sure?</p>
-    `;
   }
 }
 
