@@ -37,24 +37,24 @@ const controlAddIngredient = function (name) {
   model.addIngredient(name);
   burgerView.render(model.state.recipe.order);
   burgerView.animateNew();
-  ingredientsView.render(model.state.recipe.ingredients);
-  summaryView.render(model.getTotals());
+  ingredientsView.update(model.state.recipe.ingredients);
+  summaryView.update(model.getTotals());
 };
 
 const controlDeleteIngredient = async function (name) {
   const index = model.deleteIngredient(name);
   burgerView.animateDeleted(index);
-  ingredientsView.render(model.state.recipe.ingredients);
+  ingredientsView.update(model.state.recipe.ingredients);
   await wait(ANIMATION_DURATION_SEC);
   burgerView.render(model.state.recipe.order);
-  summaryView.render(model.getTotals());
+  summaryView.update(model.getTotals());
 };
 
 const init = function () {
   window.addEventListener("load", () => {
     burgerView.render(model.state.recipe.order);
     ingredientsView.render(model.state.recipe.ingredients);
-    summaryView.render(model.getTotals());
+    summaryView.update(model.getTotals());
   });
   ingredientsView.addHandlerUpdateQuantity(controlBurger);
 };
