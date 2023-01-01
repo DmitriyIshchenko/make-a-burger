@@ -83,21 +83,29 @@
       </section>
 
       <section class="summary">
-        <h2>Summary</h2>
-        <span class="summary__price">$0</span>
+        <h2 class="summary__heading heading-secondary">Summary</h2>
+        <span class="summary__price">&dollar;0</span>
         <button class="summary__btn">Checkout</button>
-        <p>Build a <span>$10</span> burger and get a gift!</p>
+
+        <p class="summary__message">Build a <span class="paragraph--accent">$10</span> burger and get a gift!</p>
+
         <div class="summary__details">
-          <div class="summary__time">
-            <svg>
+          <div>
+            <svg class="summary__icon summary__icon--time">
               <use href="src/img/sprite.svg#time"></use>
             </svg>
             <span>0 min</span>
           </div>
-          <div class="summary__mass">
+          <div>
+            <svg class="summary__icon summary__icon--mass">
+              <use href="src/img/sprite.svg#scales"></use>
+            </svg>
             <span>0 g</span>
           </div>
-          <div class="summary__calories">
+          <div>
+            <svg class="summary__icon summary__icon--fire">
+              <use href="src/img/sprite.svg#fire"></use>
+            </svg>
             <span>0 kcal</span>
           </div>
         </div>

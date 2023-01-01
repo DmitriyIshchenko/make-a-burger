@@ -9,9 +9,7 @@ class SummaryView extends View {
     <span class="summary__price">&dollar;${this._data.price.toFixed(2)}</span>
     <button class="summary__btn">Checkout</button>
 
-    <p class="summary__message paragraph">Build a 
-      <span class="paragraph--accent">&dollar;10</span> 
-    burger and get a gift!</p>
+    <p class="summary__message">Build a <span class="paragraph--accent">$10</span> burger and get a gift!</p>
 
     <div class="summary__details">
       <div>
