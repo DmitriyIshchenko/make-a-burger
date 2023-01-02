@@ -1,9 +1,25 @@
 .burger-demo-box {
-  height: 80vh;
+  position: relative;
+  height: 100%;
+  height: MIN(80vh, 60rem);
   grid-column: 2 / 4;
+  padding: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15%;
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/bg-main.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: -100000;
+  }
 }
 
 .burger-demo {
@@ -11,31 +27,39 @@
   width: 50%;
   height: 80%;
   margin-bottom: 0%;
-
-  &::before {
-    content: "";
-    position: absolute;
-    left: -15%;
-    height: 120%;
-    width: 150%;
-    background-image: url("../img/bg-main.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    z-index: -100000;
-  }
+  opacity: 0;
+  animation: drop 1s ease 1s, shake 0.5s ease 2s;
+  animation-fill-mode: forwards;
 
   & > * {
     position: absolute;
     width: 100%;
+    left: 0;
+    transition: all 0.3s;
   }
 
-  &__bun-bottom {
+  &[data-type="whole"] &__bun-bottom {
     bottom: 0;
+    left: 0;
   }
-  &__bun-top {
+
+  &[data-type="exploded"] &__bun-bottom {
+    bottom: -15%;
+    left: 20%;
+    transform: rotate(-10deg) scale(0.8);
+  }
+
+  &[data-type="whole"] &__bun-top {
     bottom: 50%;
   }
-  &__mayo {
+
+  &[data-type="exploded"] &__bun-top {
+    bottom: 75%;
+    left: 20%;
+    transform: rotate(15deg) scale(0.8);
+  }
+
+  &[data-type="whole"] &__mayo {
     &--1 {
       bottom: 5%;
     }
@@ -43,7 +67,21 @@
       bottom: 40%;
     }
   }
-  &__salad {
+
+  &[data-type="exploded"] &__mayo {
+    &--1 {
+      bottom: -12%;
+      left: 20%;
+      transform: rotate(-15deg) scale(0.8);
+    }
+    &--2 {
+      bottom: 70%;
+      left: 20%;
+      transform: rotate(15deg) scale(0.8);
+    }
+  }
+
+  &[data-type="whole"] &__salad {
     &--1 {
       bottom: 10%;
     }
@@ -51,10 +89,29 @@
       bottom: 30%;
     }
   }
-  &__cheese {
+
+  &[data-type="exploded"] &__salad {
+    &--1 {
+      bottom: 0%;
+      transform: rotate(-3deg) scale(1.1);
+    }
+    &--2 {
+      bottom: 75%;
+      transform: rotate(15deg) scale(1, 0.8);
+    }
+  }
+
+  &[data-type="whole"] &__cheese {
     bottom: 12%;
   }
-  &__onion {
+
+  &[data-type="exploded"] &__cheese {
+    bottom: 10%;
+    left: 10%;
+    transform: rotate(-10deg);
+  }
+
+  &[data-type="whole"] &__onion {
     width: 30%;
 
     &--1 {
@@ -83,10 +140,53 @@
       left: 60%;
     }
   }
-  &__beef {
+
+  &[data-type="exploded"] &__onion {
+    width: 30%;
+
+    &--1 {
+      bottom: 30%;
+      left: 0%;
+      transform: rotate(20deg) scale(1);
+    }
+    &--2 {
+      bottom: 32%;
+      left: 50%;
+      transform: rotate(-5deg) scale(1.5);
+    }
+    &--3 {
+      bottom: 65%;
+      left: 110%;
+      transform: rotate(20deg) scale(0.9);
+    }
+
+    &--4 {
+      bottom: 40%;
+      left: 45%;
+      transform: rotate(22deg) scale(1.5);
+    }
+    &--5 {
+      bottom: 55%;
+      left: 70%;
+      transform: rotate(25deg) scale(0.7);
+    }
+    &--6 {
+      bottom: 50%;
+      left: -10%;
+      transform: rotate(-25deg) scale(0.8);
+    }
+  }
+
+  &[data-type="whole"] &__beef {
     bottom: 20%;
   }
-  &__tomato {
+
+  &[data-type="exploded"] &__beef {
+    bottom: 40%;
+    transform: rotate(-8deg) scaleX(1.1);
+  }
+
+  &[data-type="whole"] &__tomato {
     width: 40%;
     &--1 {
       bottom: 30%;
@@ -105,7 +205,32 @@
       left: 60%;
     }
   }
-  &__pickle {
+
+  &[data-type="exploded"] &__tomato {
+    width: 40%;
+    &--1 {
+      bottom: 45%;
+      left: -50%;
+      transform: rotate(50deg) scale(0.5);
+    }
+    &--2 {
+      bottom: 65%;
+      left: -5%;
+      transform: rotate(-20deg) scale(0.8);
+    }
+    &--3 {
+      bottom: 55%;
+      left: 30%;
+      transform: rotate(15deg) scale(0.9);
+    }
+    &--4 {
+      bottom: 65%;
+      left: 60%;
+      transform: rotate(15deg) scale(0.9);
+    }
+  }
+
+  &[data-type="whole"] &__pickle {
     width: 40%;
     &--1 {
       bottom: 32%;
@@ -126,5 +251,96 @@
       bottom: 42%;
       left: 14%;
     }
+  }
+
+  &[data-type="exploded"] &__pickle {
+    width: 40%;
+    &--1 {
+      bottom: 65%;
+      left: -5%;
+      transform: rotate(15deg) scale(0.8);
+    }
+    &--2 {
+      bottom: 65%;
+      left: 30%;
+      transform: rotate(-15deg) scale(0.9);
+    }
+    &--3 {
+      bottom: 65%;
+      left: 70%;
+      transform: rotate(35deg) scale(0.7);
+    }
+    &--4 {
+      bottom: 80%;
+      left: 60%;
+      transform: rotate(5deg) scale(0.7);
+    }
+    &--5 {
+      bottom: 80%;
+      left: 14%;
+      transform: rotate(5deg) scale(0.7);
+    }
+  }
+
+  &__btn {
+    @extend %btn-round;
+    top: 65%;
+    left: -45%;
+    opacity: 0;
+    transform: scale(0.1);
+  }
+
+  &[data-type="exploded"] &__btn {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  &__emoji {
+    opacity: 0;
+    width: 5rem;
+    height: 5rem;
+  }
+
+  &[data-type="exploded"] &__emoji {
+    opacity: 1;
+  }
+
+  &__emoji--thumb {
+    bottom: -10%;
+    transform: rotate(15deg) scale(0.1);
+  }
+
+  &[data-type="exploded"] &__emoji--thumb {
+    transform: rotate(15deg) scale(1);
+  }
+
+  &__emoji--celebration {
+    bottom: 20%;
+    left: 120%;
+    transform: rotate(20deg) scale(0.1);
+  }
+
+  &[data-type="exploded"] &__emoji--celebration {
+    transform: rotate(20deg) scale(0.7);
+  }
+
+  &__emoji--explosion {
+    bottom: 55%;
+    left: 100%;
+    transform: scale(0.1);
+  }
+
+  &[data-type="exploded"] &__emoji--explosion {
+    transform: scale(2);
+  }
+
+  &__emoji--hearts {
+    bottom: 55%;
+    left: -15%;
+    transform: rotate(-20deg) scale(0.1);
+  }
+
+  &[data-type="exploded"] &__emoji--hearts {
+    transform: rotate(-20deg) scale(0.6);
   }
 }

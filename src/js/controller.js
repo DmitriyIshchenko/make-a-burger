@@ -5,6 +5,7 @@ import summaryView from "./views/summaryView";
 import tooltipView from "./views/tooltipView";
 import tabsView from "./views/tabsView";
 import checkoutView from "./views/checkoutView";
+import burgerDemoView from "./views/burgerDemoView";
 import { wait } from "./helpers";
 import {
   TOP_BUN_TIMEOUT_SEC,

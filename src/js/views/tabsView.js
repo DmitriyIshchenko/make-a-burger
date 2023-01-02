@@ -1,26 +1,38 @@
-class TabView {
-  _parentElement = document.querySelector(".nav__list");
+import View from "./View";
+class TabView extends View {
+  _navParent = document.querySelector(".nav__list");
+  _burgerParent = document.querySelector(".burger-demo");
 
   constructor() {
+    super();
     this.addHandlerToggle();
   }
 
   addHandlerToggle() {
-    this._parentElement.addEventListener("click", function (e) {
-      e.preventDefault();
-      const clickedLink = e.target.closest(".nav__link");
-      if (!clickedLink) return;
-      const href = clickedLink.getAttribute("href");
+    [this._burgerParent, this._navParent].forEach((elem) =>
+      elem.addEventListener("click", this._toggleTabs.bind(this))
+    );
+  }
 
-      const currentLink = this.querySelector(".nav__link--active");
-      currentLink.classList.remove("nav__link--active");
-      clickedLink.classList.add("nav__link--active");
+  _toggleTabs(e) {
+    e.preventDefault();
+    const clickedLink =
+      e.target.closest(".nav__link") || e.target.closest(".burger-demo__btn");
+    if (!clickedLink) return;
+    const href = clickedLink.getAttribute("href");
 
-      const tabToHide = document.querySelector(".tab--active");
-      tabToHide.classList.remove("tab--active");
-      const tabToShow = document.querySelector(href);
-      tabToShow.classList.add("tab--active");
+    // Update active nav link
+    const navLinks = this._navParent.querySelectorAll(".nav__link");
+    navLinks.forEach((link) => {
+      link.getAttribute("href") === href
+        ? link.classList.add("nav__link--active")
+        : link.classList.remove("nav__link--active");
     });
+
+    // Switch tabs
+    const tabs = document.querySelectorAll(".tab");
+    tabs.forEach((tab) => tab.classList.remove("tab--active"));
+    document.querySelector(href).classList.add("tab--active");
   }
 }
 

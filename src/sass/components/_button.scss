@@ -1,5 +1,8 @@
 %btn {
-  display: block;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
   border: none;
   border-radius: 100rem;
   background-color: $color-blue;
@@ -8,6 +11,7 @@
   font-family: inherit;
   font-size: 1.6rem;
   font-weight: 600;
+  text-decoration: none;
   color: $color-white;
   cursor: pointer;
 
@@ -30,4 +34,14 @@
   &:hover {
     background-color: darken($color-grey-light-1, 5%);
   }
+}
+
+%btn-round {
+  @extend %btn;
+
+  width: 12rem;
+  aspect-ratio: 1;
+  text-transform: uppercase;
+  font-weight: 800;
+  line-height: 1.2;
 }
