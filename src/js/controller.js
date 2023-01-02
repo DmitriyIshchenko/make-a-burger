@@ -36,8 +36,7 @@ const controlBurger = async function (name, updateTo) {
 
 const controlAddIngredient = function (name) {
   model.addIngredient(name);
-  burgerView.render(model.state.recipe.order);
-  burgerView.animateNew();
+  burgerView.render(model.state.recipe.order, true);
   ingredientsView.update(model.state.recipe.ingredients);
   summaryView.update(model.getTotals());
 };
@@ -46,9 +45,10 @@ const controlDeleteIngredient = async function (name) {
   const index = model.deleteIngredient(name);
   burgerView.animateDeleted(index);
   ingredientsView.update(model.state.recipe.ingredients);
+  summaryView.update(model.getTotals());
+
   await wait(ANIMATION_DURATION_SEC);
   burgerView.render(model.state.recipe.order);
-  summaryView.update(model.getTotals());
 };
 
 const init = function () {

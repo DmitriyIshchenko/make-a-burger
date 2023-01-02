@@ -1,10 +1,10 @@
 export default class View {
   _data;
 
-  render(data) {
+  render(data, withNew = false) {
     this._data = data;
 
-    const markup = this._generateMarkup();
+    const markup = this._generateMarkup(withNew);
 
     this._clear();
 

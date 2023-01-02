@@ -20,21 +20,19 @@ class BurgerView extends View {
     );
   }
 
-  animateNew() {
-    const img = Array.from(
-      this._parentElement.querySelectorAll(".burger__ingredient")
-    ).at(-1);
-    img.classList.add("burger__ingredient--new");
+  _generateMarkup(withNew) {
+    return this._data
+      .map(this._generateIngredientMarkup.bind(withNew))
+      .join("");
   }
 
-  _generateMarkup() {
-    return this._data.map(this._generateIngredientMarkup).join("");
-  }
-
-  _generateIngredientMarkup(ing, index) {
+  _generateIngredientMarkup(ing, index, array) {
+    const isNew = this && index === array.length - 1;
     return `
     <img 
-      class="burger__ingredient burger__ingredient--${ing}" 
+      class="burger__ingredient burger__ingredient--${ing} ${
+      isNew ? "burger__ingredient--new" : ""
+    }" 
       style="z-index:${index};bottom:${index * 5}%" 
       src="${images[ing]}" 
       alt="${ing}"
