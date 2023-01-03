@@ -13,3 +13,20 @@ html {
 body {
   box-sizing: border-box;
 }
+
+.container {
+  display: grid;
+
+  // 1140px / 6 = 190 = 19rem
+  grid-template-columns:
+    [full-start]
+    minmax(6rem, 1fr)
+    [center-start]
+    repeat(6, [col-start] minmax(min-content, 19rem) [col-end])
+    [center-end]
+    minmax(6rem, 1fr)
+    [full-end];
+
+  grid-template-rows: min-content minmax(85vh, min-content) min-content;
+  align-items: center;
+}

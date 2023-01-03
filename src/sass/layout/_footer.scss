@@ -1,12 +1,11 @@
 .footer {
-  max-width: 120rem;
-  margin: 0 auto;
-  margin-top: 3rem;
-  padding: 1.5rem 0;
+  grid-column: center-start / center-end;
 
   display: flex;
-  align-items: center;
+  align-items: end;
+  padding-block: 1.5rem;
   gap: 3rem;
+  height: 10rem;
 
   &__copyright {
     color: $color-grey-dark;

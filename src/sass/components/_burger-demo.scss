@@ -2,7 +2,7 @@
   position: relative;
   height: MIN(80vh, 60rem);
   grid-column: 2 / 4;
-  padding: 1.5rem;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,8 +23,7 @@
 .burger-demo {
   position: relative;
   width: 50%;
-  height: 80%;
-  margin-bottom: 0%;
+  aspect-ratio: 1;
   opacity: 0;
   animation: drop 1s ease 1s, shake 0.5s ease 2s;
   animation-fill-mode: forwards;
@@ -33,7 +32,8 @@
     position: absolute;
     width: 100%;
     left: 0;
-    transition: all 0.3s;
+    transition: all 0.5s;
+    transition-delay: -0.2s;
   }
 
   &[data-type="whole"] &__bun-bottom {
@@ -111,18 +111,17 @@
 
   &[data-type="whole"] &__onion {
     width: 30%;
-
     &--1 {
       bottom: 20%;
       left: 0%;
     }
     &--2 {
       bottom: 20%;
-      left: 30%;
+      left: 20%;
     }
     &--3 {
       bottom: 20%;
-      left: 60%;
+      left: 30%;
     }
 
     &--4 {
@@ -131,17 +130,16 @@
     }
     &--5 {
       bottom: 40%;
-      left: 30%;
+      left: 20%;
     }
     &--6 {
       bottom: 40%;
-      left: 60%;
+      left: 30%;
     }
   }
 
   &[data-type="exploded"] &__onion {
     width: 30%;
-
     &--1 {
       bottom: 30%;
       left: 0%;
@@ -185,27 +183,27 @@
   }
 
   &[data-type="whole"] &__tomato {
-    width: 40%;
+    width: 30%;
     &--1 {
       bottom: 30%;
       left: 0%;
     }
     &--2 {
       bottom: 30%;
-      left: 30%;
+      left: 20%;
     }
     &--3 {
       bottom: 30%;
-      left: 60%;
+      left: 30%;
     }
     &--4 {
       bottom: 30%;
-      left: 60%;
+      left: 30%;
     }
   }
 
   &[data-type="exploded"] &__tomato {
-    width: 40%;
+    width: 30%;
     &--1 {
       bottom: 45%;
       left: -50%;
@@ -229,21 +227,21 @@
   }
 
   &[data-type="whole"] &__pickle {
-    width: 40%;
+    width: 30%;
     &--1 {
       bottom: 32%;
     }
     &--2 {
       bottom: 32%;
-      left: 30%;
+      left: 20%;
     }
     &--3 {
       bottom: 32%;
-      left: 43%;
+      left: 33%;
     }
     &--4 {
       bottom: 42%;
-      left: 60%;
+      left: 30%;
     }
     &--5 {
       bottom: 42%;
@@ -252,7 +250,7 @@
   }
 
   &[data-type="exploded"] &__pickle {
-    width: 40%;
+    width: 30%;
     &--1 {
       bottom: 65%;
       left: -5%;

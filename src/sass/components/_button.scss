@@ -39,8 +39,9 @@
 %btn-round {
   @extend %btn;
 
-  width: 12rem;
+  width: MIN(20vh, 15rem);
   aspect-ratio: 1;
+  padding: 2rem;
   text-transform: uppercase;
   font-weight: 800;
   line-height: 1.2;

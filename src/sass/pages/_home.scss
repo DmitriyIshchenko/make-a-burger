@@ -1,13 +1,13 @@
-.container {
-  max-width: 120rem;
-  margin: 0 auto;
+.content {
+  grid-column: center-start / center-end;
+}
+
+.tab {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 3.5rem;
   align-items: center;
-}
 
-.tab {
   visibility: hidden;
   opacity: 0;
   width: 0;
@@ -144,8 +144,10 @@
   grid-column: 1/-1;
   grid-row: 2/3;
   display: flex;
-  gap: 20px;
-  margin-block: 10px;
+  // width: 100%;
+  // overflow-x: scroll;
+  gap: 2rem;
+  margin-block: 1rem;
 }
 
 .tooltip {

@@ -1,5 +1,6 @@
 .header {
   padding: 1.5rem;
+  grid-column: center-start / center-end;
 }
 
 .nav {
@@ -7,9 +8,7 @@
   align-items: center;
   gap: 5rem;
 
-  max-width: 120rem;
   height: 7rem;
-  margin: 0 auto;
 
   &__list {
     display: flex;
