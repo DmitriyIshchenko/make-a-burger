@@ -1,4 +1,5 @@
-class TooltipView {
+import View from "./View";
+class TooltipView extends View {
   _parentElement = document.querySelector(".tooltip");
 
   showTooltip() {

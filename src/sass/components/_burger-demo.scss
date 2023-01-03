@@ -1,6 +1,5 @@
 .burger-demo-box {
   position: relative;
-  height: 100%;
   height: MIN(80vh, 60rem);
   grid-column: 2 / 4;
   padding: 1.5rem;
@@ -11,9 +10,8 @@
   &::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 15%;
-    width: 100%;
+    top: 10%;
+    width: 70%;
     height: 100%;
     background-image: url("../img/bg-main.svg");
     background-repeat: no-repeat;
