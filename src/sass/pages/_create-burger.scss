@@ -1,0 +1,199 @@
+.burger {
+  grid-column: 2 / 3;
+  height: MIN(80vh, 50rem);
+  position: relative;
+  z-index: 10;
+
+  @include respond(medium) {
+    grid-column: 1/-1;
+    grid-row: 2/3;
+    align-self: center;
+  }
+
+  &__ingredients {
+    height: 100%;
+    position: relative;
+
+    @include respond(medium) {
+      width: 50%;
+      margin: 0 auto;
+    }
+
+    @include respond(small) {
+      width: 80%;
+    }
+  }
+
+  // bg
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 110%;
+    left: -5%;
+    aspect-ratio: 1;
+    background-image: url("../img/bg.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include respond(medium) {
+      width: 50%;
+      left: 25%;
+    }
+
+    @include respond(small) {
+      width: 80%;
+      left: 10%;
+    }
+  }
+
+  &__ingredient {
+    position: absolute;
+    width: 100%;
+    margin-bottom: 0;
+    transition: all $anim-duration;
+
+    &--new {
+      animation: drop $anim-duration ease-in-out;
+      animation-fill-mode: forwards;
+    }
+
+    &--delete {
+      animation: shiftLeft $anim-duration ease-in-out;
+    }
+
+    &--top {
+      margin-bottom: -5%;
+    }
+  }
+}
+
+.summary {
+  grid-column: 3 / 4;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+
+  @include respond(medium) {
+    grid-column: 1 / -1;
+    grid-row: 3 / 7;
+
+    grid-template-rows: auto 20rem;
+    justify-items: center;
+    align-self: start;
+  }
+
+  &__heading {
+    grid-column: 1/-1;
+    padding-bottom: 3rem;
+    border-bottom: 2px solid $color-grey-light-1;
+
+    @include respond(medium) {
+      display: none;
+    }
+  }
+
+  &__message {
+    grid-column: 1/-1;
+    @include respond(medium) {
+      display: none;
+    }
+  }
+
+  &__details {
+    grid-column: 1/-1;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+
+    background-color: $color-grey-light-1;
+    padding: 1.5rem;
+    border-radius: 100rem;
+
+    @include respond(medium) {
+      grid-row: 1/2;
+      width: 100%;
+    }
+
+    & > * {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      @include respond(medium) {
+        justify-content: center;
+      }
+    }
+
+    font-weight: 600;
+  }
+
+  &__price {
+    grid-column: 1/2;
+
+    font-size: 3.6rem;
+    font-weight: 800;
+    line-height: 1.5;
+    color: $color-blue;
+
+    @include respond(medium) {
+      grid-column: 1/ -1;
+      font-size: 5rem;
+      grid-row: 3 / 4;
+    }
+  }
+
+  &__icon {
+    width: 3rem;
+    aspect-ratio: 1;
+    padding: 0.5rem;
+    border-radius: 50%;
+    fill: #fff;
+
+    &--time {
+      background-color: #b956f5;
+    }
+    &--mass {
+      background-color: #f58f56;
+    }
+    &--fire {
+      background-color: #ff4d4f;
+    }
+  }
+
+  &__btn {
+    grid-column: 2/3;
+    @extend %btn;
+    @include respond(medium) {
+      grid-column: 1 / -1;
+      grid-row: 4 / 5;
+    }
+    @include respond(small) {
+      width: 100%;
+    }
+  }
+}
+
+.ingredients {
+  margin: 0 auto;
+  grid-column: 1/-1;
+  grid-row: 2/3;
+  display: flex;
+
+  gap: 2rem;
+  margin-block: 1rem;
+
+  @include respond(large) {
+    width: 100%;
+    overflow-x: scroll;
+  }
+
+  @include respond(medium) {
+    grid-column: 1/-1;
+    grid-row: 4/5;
+
+    margin-top: -3rem;
+  }
+}

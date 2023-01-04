@@ -1,0 +1,39 @@
+.content {
+  grid-column: center-start / center-end;
+  height: 100%;
+}
+
+.tab {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.5rem;
+  align-items: center;
+
+  visibility: hidden;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+
+  &--active {
+    visibility: visible;
+    overflow: visible;
+    opacity: 1;
+    width: auto;
+    height: 100%;
+  }
+
+  @include respond(medium) {
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content;
+  }
+}
+
+.heading-primary {
+  @include respond(medium) {
+    align-self: start;
+    text-align: center;
+    padding-top: 8rem;
+    z-index: 10;
+  }
+}
