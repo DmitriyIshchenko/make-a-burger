@@ -8,6 +8,18 @@
 
 html {
   font-size: 62.5%;
+
+  @include respond(largest) {
+    font-size: 75%;
+  }
+
+  @include respond(medium) {
+    font-size: 56.25%;
+  }
+
+  @include respond(small) {
+    font-size: 50%;
+  }
 }
 
 body {
@@ -20,11 +32,11 @@ body {
   // 1140px / 6 = 190 = 19rem
   grid-template-columns:
     [full-start]
-    minmax(6rem, 1fr)
+    minmax(3rem, 1fr)
     [center-start]
     repeat(6, [col-start] minmax(min-content, 19rem) [col-end])
     [center-end]
-    minmax(6rem, 1fr)
+    minmax(3rem, 1fr)
     [full-end];
 
   grid-template-rows: min-content minmax(85vh, min-content) min-content;
