@@ -33,7 +33,7 @@ class BurgerView extends View {
       class="burger__ingredient burger__ingredient--${ing} ${
       isNew ? "burger__ingredient--new" : ""
     }" 
-      style="z-index:${index};bottom:${index * 5}%" 
+      style="bottom:${index * 5}%" 
       src="${images[ing]}" 
       alt="${ing}"
     >
