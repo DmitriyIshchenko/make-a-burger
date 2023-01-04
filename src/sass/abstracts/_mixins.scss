@@ -1,0 +1,32 @@
+// MEDIA QUERIES
+
+// 1em = 16px
+@mixin respond($breakpoint) {
+  // 600px
+  @if $breakpoint == small {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    }
+  }
+
+  // 1000px
+  @if $breakpoint == medium {
+    @media only screen and (max-width: 62.5em) {
+      @content;
+    }
+  }
+
+  // 1200px
+  @if $breakpoint == large {
+    @media only screen and (max-width: 75em) {
+      @content;
+    }
+  }
+
+  // 1800px
+  @if $breakpoint == largest {
+    @media only screen and (min-width: 112em) {
+      @content;
+    }
+  }
+}
