@@ -15,23 +15,32 @@
 
 <body class="container">
   <header class="header">
+    <a href="#" class="logo">
+      <img src="src/img/logo.png" alt="logo" class="logo__img">
+    </a>
     <nav class="nav">
-      <a href="#" class="logo">
-        <img src="src/img/logo.png" alt="logo" class="logo__img">
-      </a>
       <ul class="nav__list">
-        <li><a href="#discover" class="nav__link nav__link--active">Discover</a></li>
-        <li><a href="#create-burger" class="nav__link">Make Your Burger</a></li>
+        <li class="nav__item"><a href="#discover" class="nav__link nav__link--active">Discover</a></li>
+        <li class="nav__item">
+          <a href="#create-burger" class="nav__link">Make Your Burger</a>
+        </li>
+        <li class="nav__item nav__phone-number-box">
+          <a href="tel:+88004378722" class="nav__phone-number">8 800
+            437-87-22</a>
+        </li>
+        <li class="nav__item nav__user">
+          <img src="src/img/user.png" alt="user image" class="nav__user-img">
+          <p class="nav__user-name">John Doe</p>
+        </li>
       </ul>
-      <a href="tel:+88004378722" class="nav__phone-number">8 800 437-87-22</a>
-      <div class="nav__user">
-        <img src="src/img/user.png" alt="user image" class="nav__user-img">
-      </div>
     </nav>
+    <button class="mobile-nav-btn">
+      <span class="mobile-nav-btn__icon"></span>
+    </button>
   </header>
 
   <main class="content">
-    <div id="discover" class="tab tab--active container1 ">
+    <div id="discover" class="tab tab--active">
       <p class="heading-primary">Make your burger</p>
 
       <div class="burger-demo-box">
@@ -83,7 +92,7 @@
 
     </div>
 
-    <div id="create-burger" class="tab container1">
+    <div id="create-burger" class="tab">
       <p class="heading-primary">Make your burger</p>
       <section class="burger">
         <div class="burger__ingredients"></div>
@@ -125,59 +134,59 @@
       <section class="ingredients">
       </section>
     </div>
-
-    <div class="popup hidden">
-      <button type="button" class="popup__close">&times;</button>
-      <form class="form">
-        <div class="form__header">
-          <svg class="form__header-icon">
-            <use href="src/img/sprite.svg#record"></use>
-          </svg>
-          <h2 class="form__title">Checkout</h2>
-        </div>
-
-        <fieldset class="form__set">
-          <div class="form__group">
-            <input id="name" type="text" class="form__input" required placeholder="Your name" pattern="\S+">
-            <svg class="form__icon">
-              <use href="src/img/sprite.svg#face"></use>
-            </svg>
-            <label for="name" class="form__label">Your name</label>
-          </div>
-
-          <div class="form__group">
-            <input id="phone" type="text" class="form__input" placeholder="Phone number" required>
-            <svg class="form__icon">
-              <use href="src/img/sprite.svg#phone"></use>
-            </svg>
-            <label for="phone" class="form__label">Phone number</label>
-          </div>
-
-          <div class="form__group">
-            <input id="address" type="text" class="form__input" placeholder="Shipping address" required pattern="\S+">
-            <svg class="form__icon">
-              <use href="src/img/sprite.svg#route"></use>
-            </svg>
-            <label for="address" class="form__label">Shipping address</label>
-          </div>
-
-          <div class="form__group">
-            <input id=time" class="form__input" type="time" min="09:00" max="22:00" placeholder="Time to deliver"
-              value='14:00' required>
-            <svg class="form__icon">
-              <use href="src/img/sprite.svg#time"></use>
-            </svg>
-            <label for="time" class="form__label">Time to deliver</label>
-          </div>
-        </fieldset>
-        <div class="form__controls">
-          <button type="button" class="form__btn form__btn--cancel">Cancel</button>
-          <button class="form__btn form__btn--submit" type="submit">Checkout</button>
-        </div>
-      </form>
-    </div>
-    <div class="overlay hidden"></div>
   </main>
+  <div class="popup hidden">
+    <button type="button" class="popup__close">&times;</button>
+    <form class="form">
+      <div class="form__header">
+        <svg class="form__header-icon">
+          <use href="src/img/sprite.svg#record"></use>
+        </svg>
+        <h2 class="form__title">Checkout</h2>
+      </div>
+
+      <fieldset class="form__set">
+        <div class="form__group">
+          <input id="name" type="text" class="form__input" required placeholder="Your name" pattern="\S+">
+          <svg class="form__icon">
+            <use href="src/img/sprite.svg#face"></use>
+          </svg>
+          <label for="name" class="form__label">Your name</label>
+        </div>
+
+        <div class="form__group">
+          <input id="phone" type="text" class="form__input" placeholder="Phone number" required>
+          <svg class="form__icon">
+            <use href="src/img/sprite.svg#phone"></use>
+          </svg>
+          <label for="phone" class="form__label">Phone number</label>
+        </div>
+
+        <div class="form__group">
+          <input id="address" type="text" class="form__input" placeholder="Shipping address" required pattern="\S+">
+          <svg class="form__icon">
+            <use href="src/img/sprite.svg#route"></use>
+          </svg>
+          <label for="address" class="form__label">Shipping address</label>
+        </div>
+
+        <div class="form__group">
+          <input id=time" class="form__input" type="time" min="09:00" max="22:00" placeholder="Time to deliver"
+            value='14:00' required>
+          <svg class="form__icon">
+            <use href="src/img/sprite.svg#time"></use>
+          </svg>
+          <label for="time" class="form__label">Time to deliver</label>
+        </div>
+      </fieldset>
+      <div class="form__controls">
+        <button type="button" class="form__btn form__btn--cancel">Cancel</button>
+        <button class="form__btn form__btn--submit" type="submit">Checkout</button>
+      </div>
+    </form>
+  </div>
+  <div class="overlay hidden"></div>
+
   <footer class="footer">
     <p class="footer__copyright">2022 &copy; Make Your Burger </p>
     <div class="footer__policies">
