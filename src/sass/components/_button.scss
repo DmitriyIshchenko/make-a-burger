@@ -5,6 +5,7 @@
   align-items: center;
   border: none;
   border-radius: 100rem;
+  padding: 1.5rem 2.5rem;
   background-color: $color-blue;
   transition: all $anim-duration;
 
@@ -23,6 +24,7 @@
 
 %btn-ingredient {
   @extend %btn;
+  padding: 0;
   height: 3rem;
   aspect-ratio: 1;
   border-radius: 50%;
