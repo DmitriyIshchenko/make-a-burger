@@ -7,6 +7,12 @@
   gap: 3rem;
   height: 10rem;
 
+  @include respond(medium) {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
   &__copyright {
     color: $color-grey-dark;
   }
@@ -40,6 +46,10 @@
     display: flex;
     margin-left: auto;
     gap: 1rem;
+
+    @include respond(medium) {
+      margin: 0;
+    }
 
     svg {
       width: 4rem;
