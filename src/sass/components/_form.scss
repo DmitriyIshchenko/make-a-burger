@@ -27,6 +27,12 @@
     padding: 1.5rem;
 
     border-bottom: 2px solid $color-grey-light-1;
+
+    @include respond(medium) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding-block: 2.5rem;
+    }
   }
 
   &__group {
