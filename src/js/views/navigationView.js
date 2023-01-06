@@ -1,17 +1,30 @@
 import View from "./View";
 class TabView extends View {
-  _navParent = document.querySelector(".nav__list");
+  _navParent = document.querySelector(".nav");
   _burgerParent = document.querySelector(".burger-demo");
+  _mobileNavBtn = document.querySelector(".mobile-nav-btn");
 
   constructor() {
     super();
-    this.addHandlerToggle();
+    this.addHandlerToggleTabs();
+    this.addHandlerToggleMobileNav();
   }
 
-  addHandlerToggle() {
+  addHandlerToggleTabs() {
     [this._burgerParent, this._navParent].forEach((elem) =>
       elem.addEventListener("click", this._toggleTabs.bind(this))
     );
+  }
+
+  addHandlerToggleMobileNav() {
+    this._mobileNavBtn.addEventListener(
+      "click",
+      this._toggleMobileNav.bind(this)
+    );
+  }
+
+  _toggleMobileNav() {
+    this._navParent.classList.toggle("nav-open");
   }
 
   _toggleTabs(e) {
@@ -33,6 +46,9 @@ class TabView extends View {
     const tabs = document.querySelectorAll(".tab");
     tabs.forEach((tab) => tab.classList.remove("tab--active"));
     document.querySelector(href).classList.add("tab--active");
+
+    // Close mobile nav
+    this._navParent.classList.remove("nav-open");
   }
 }
 

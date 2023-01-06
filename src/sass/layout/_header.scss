@@ -98,7 +98,7 @@
   position: absolute;
   top: 50%;
   right: 0;
-  z-index: 20;
+  z-index: 1000;
   transform: translate(0, -50%);
 
   width: 7rem;
@@ -107,6 +107,7 @@
   background: $color-grey-light-1;
   border-radius: 50rem;
   border: none;
+  cursor: pointer;
 
   &__icon {
     position: relative;
@@ -203,22 +204,20 @@
     }
   }
 
-  .header.nav-open .nav {
+  .nav-open {
     transform: translateX(0);
   }
 
-  .header.nav-open .mobile-nav-btn {
-    &__icon {
-      background-color: transparent;
-      &::before {
-        top: 0;
-        transform: rotate(135deg);
-      }
+  .nav-open ~ .mobile-nav-btn .mobile-nav-btn__icon {
+    background-color: transparent;
+    &::before {
+      top: 0;
+      transform: rotate(135deg);
+    }
 
-      &::after {
-        top: 0;
-        transform: rotate(-135deg);
-      }
+    &::after {
+      top: 0;
+      transform: rotate(-135deg);
     }
   }
 }

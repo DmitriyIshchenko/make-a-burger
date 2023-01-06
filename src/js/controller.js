@@ -3,7 +3,7 @@ import burgerView from "./views/burgerView";
 import ingredientsView from "./views/ingredientsView";
 import summaryView from "./views/summaryView";
 import tooltipView from "./views/tooltipView";
-import tabsView from "./views/tabsView";
+import navigationView from "./views/navigationView";
 import checkoutView from "./views/checkoutView";
 import burgerDemoView from "./views/burgerDemoView";
 import { wait } from "./helpers";
