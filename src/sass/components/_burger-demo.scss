@@ -43,6 +43,10 @@
     left: 0;
     transition: all 0.5s;
     transition-delay: -0.2s;
+
+    img {
+      width: 100%;
+    }
   }
 
   &[data-type="whole"] &__bun-bottom {
@@ -119,18 +123,18 @@
   }
 
   &[data-type="whole"] &__onion {
-    width: 30%;
+    width: 40%;
     &--1 {
       bottom: 20%;
       left: 0%;
     }
     &--2 {
       bottom: 20%;
-      left: 20%;
+      left: 30%;
     }
     &--3 {
       bottom: 20%;
-      left: 30%;
+      left: 60%;
     }
 
     &--4 {
@@ -139,11 +143,11 @@
     }
     &--5 {
       bottom: 40%;
-      left: 20%;
+      left: 30%;
     }
     &--6 {
       bottom: 40%;
-      left: 30%;
+      left: 60%;
     }
   }
 
@@ -192,22 +196,22 @@
   }
 
   &[data-type="whole"] &__tomato {
-    width: 30%;
+    width: 40%;
     &--1 {
       bottom: 30%;
       left: 0%;
     }
     &--2 {
       bottom: 30%;
-      left: 20%;
+      left: 30%;
     }
     &--3 {
       bottom: 30%;
-      left: 30%;
+      left: 60%;
     }
     &--4 {
       bottom: 30%;
-      left: 30%;
+      left: 60%;
     }
   }
 
@@ -236,25 +240,25 @@
   }
 
   &[data-type="whole"] &__pickle {
-    width: 30%;
+    width: 40%;
     &--1 {
       bottom: 32%;
     }
     &--2 {
       bottom: 32%;
-      left: 20%;
+      left: 30%;
     }
     &--3 {
       bottom: 32%;
-      left: 33%;
+      left: 63%;
     }
     &--4 {
       bottom: 42%;
-      left: 30%;
+      left: 60%;
     }
     &--5 {
       bottom: 42%;
-      left: 14%;
+      left: 3%;
     }
   }
 

@@ -1,5 +1,6 @@
 import View from "./View";
-import images from "url:../../img/*.png";
+import imagesPng from "url:../../img/ingredients/*.png";
+import imagesWebp from "url:../../img/ingredients/*.webp";
 
 class ingredientsView extends View {
   _parentElement = document.querySelector(".ingredients");
@@ -28,11 +29,17 @@ class ingredientsView extends View {
     const { name, quantity } = ingredient;
     return `
     <div class="card">
-      <div class="card__img-box">
+      <picture class="card__img-box">
+        <source srcset="${
+          imagesWebp[`${name}-single`] || imagesWebp[name]
+        }" type="image/webp">
+        <source srcset="${
+          imagesPng[`${name}-single`] || imagesPng[name]
+        }" type="image/png">
         <img class="card__img" src="${
-          images[`${name}-single`] || images[name]
+          imagesPng[`${name}-single`] || imagesPng[name]
         }" alt="${name}">
-      </div>
+      </picture>
 
       <p class="card__title">${name}</p>
 

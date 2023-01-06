@@ -17,7 +17,11 @@
 <body class="container">
   <header class="header">
     <a href="#" class="logo">
-      <img src="src/img/logo.png" alt="logo" class="logo__img">
+      <picture>
+        <source srcset="src/img/logo.webp" type="image/webp">
+        <source srcset="src/img/logo.png" type="image/png">
+        <img src="src/img/logo.png" alt="logo" class="logo__img">
+      </picture>
     </a>
     <nav class="nav">
       <ul class="nav__list">
@@ -30,7 +34,11 @@
             437-87-22</a>
         </li>
         <li class="nav__item nav__user">
-          <img src="src/img/user.png" alt="user image" class="nav__user-img">
+          <picture>
+            <source srcset="src/img/emojis/user.webp" type="image/webp">
+            <source srcset="src/img/emojis/user.png" type="image/png">
+            <img src="src/img/emojis/user.png" alt="user image" class="nav__user-img">
+          </picture>
           <p class="nav__user-name">John Doe</p>
         </li>
       </ul>
@@ -46,48 +54,156 @@
 
       <div class="burger-demo-box">
         <div class="burger-demo" data-type="whole">
-          <img class="burger-demo__bun-bottom" src="src/img/bun-bottom.png" alt="bun-bottom">
-          <img class="burger-demo__mayo burger-demo__mayo--1" src="src/img/mayo.png" alt="mayo">
-          <img class="burger-demo__salad burger-demo__salad--1" src="src/img/salad.png" alt="salad">
-          <img class="burger-demo__cheese" src="src/img/cheese.png" alt="cheese">
+          <picture class="burger-demo__bun-bottom">
+            <source srcset="src/img/ingredients/bun-bottom.webp" type="image/webp">
+            <source srcset="src/img/ingredients/bun-bottom.png" type="image/png">
+            <img src="src/img/ingredients/bun-bottom.png" alt="bun-bottom">
+          </picture>
 
-          <img class="burger-demo__onion burger-demo__onion--1" src="src/img/onion-single.png" alt="onion">
-          <img class="burger-demo__onion burger-demo__onion--2" src="src/img/onion-single.png" alt="onion">
-          <img class="burger-demo__onion burger-demo__onion--3" src="src/img/onion-single.png" alt="onion">
+          <picture class="burger-demo__mayo burger-demo__mayo--1">
+            <source srcset="src/img/ingredients/mayo.webp" type="image/webp">
+            <source srcset="src/img/ingredients/mayo.png" type="image/png">
+            <img src="src/img/ingredients/mayo.png" alt="mayo">
+          </picture>
 
-          <img class="burger-demo__beef" src="src/img/beef.png" alt="beef">
+          <picture class="burger-demo__salad burger-demo__salad--1">
+            <source srcset="src/img/ingredients/salad.webp" type="image/webp">
+            <source srcset="src/img/ingredients/salad.png" type="image/png">
+            <img src="src/img/ingredients/salad.png" alt="salad">
+          </picture>
 
-          <img class="burger-demo__tomato burger-demo__tomato--1" src="src/img/tomato-single.png" alt="tomato">
-          <img class="burger-demo__tomato burger-demo__tomato--2" src="src/img/tomato-single.png" alt="tomato">
-          <img class="burger-demo__tomato burger-demo__tomato--3" src="src/img/tomato-single.png" alt="tomato">
-          <img class="burger-demo__tomato burger-demo__tomato--4" src="src/img/tomato-single.png" alt="tomato">
+          <picture class="burger-demo__cheese">
+            <source srcset="src/img/ingredients/cheese.webp" type="image/webp">
+            <source srcset="src/img/ingredients/cheese.png" type="image/png">
+            <img src="src/img/ingredients/cheese.png" alt="cheese">
+          </picture>
+          <picture class="burger-demo__onion burger-demo__onion--1">
+            <source srcset="src/img/ingredients/onion-single.webp" type="image/webp">
+            <source srcset="src/img/ingredients/onion-single.png" type="image/png">
+            <img src="src/img/ingredients/onion-single.png" alt="onion">
+          </picture>
+          <picture class="burger-demo__onion burger-demo__onion--2">
+            <source srcset="src/img/ingredients/onion-single.webp" type="image/webp">
+            <source srcset="src/img/ingredients/onion-single.png" type="image/png">
+            <img src="src/img/ingredients/onion-single.png" alt="onion">
+          </picture>
+          <picture class="burger-demo__onion burger-demo__onion--3">
+            <source srcset="src/img/ingredients/onion-single.webp" type="image/webp">
+            <source srcset="src/img/ingredients/onion-single.png" type="image/png">
+            <img src="src/img/ingredients/onion-single.png" alt="onion">
+          </picture>
 
-          <img class="burger-demo__pickle burger-demo__pickle--1" src="src/img/pickle-single.png" alt="pickle">
-          <img class="burger-demo__pickle burger-demo__pickle--2" src="src/img/pickle-single.png" alt="pickle">
-          <img class="burger-demo__pickle burger-demo__pickle--3" src="src/img/pickle-single.png" alt="pickle">
+          <picture class="burger-demo__beef">
+            <source srcset="src/img/ingredients/beef.webp" type="image/webp">
+            <source srcset="src/img/ingredients/beef.png" type="image/png">
+            <img src="src/img/ingredients/beef.png" alt="beef">
+          </picture>
 
-          <img class="burger-demo__salad burger-demo__salad--2" src="src/img/salad.png" alt="salad">
+          <picture class="burger-demo__tomato burger-demo__tomato--1">
+            <source srcset="src/img/ingredients/tomato-single.webp" type="image/webp">
+            <source srcset="src/img/ingredients/tomato-single.png" type="image/png">
+            <img src="src/img/ingredients/tomato-single.png" alt="tomato">
+          </picture>
+          <picture class="burger-demo__tomato burger-demo__tomato--2">
+            <source srcset="src/img/ingredients/tomato-single.webp" type="image/webp">
+            <source srcset="src/img/ingredients/tomato-single.png" type="image/png">
+            <img src="src/img/ingredients/tomato-single.png" alt="tomato">
+          </picture>
+          <picture class="burger-demo__tomato burger-demo__tomato--3">
+            <source srcset="src/img/ingredients/tomato-single.webp" type="image/webp">
+            <source srcset="src/img/ingredients/tomato-single.png" type="image/png">
+            <img src="src/img/ingredients/tomato-single.png" alt="tomato">
+          </picture>
+          <picture class="burger-demo__tomato burger-demo__tomato--4">
+            <source srcset="src/img/ingredients/tomato-single.webp" type="image/webp">
+            <source srcset="src/img/ingredients/tomato-single.png" type="image/png">
+            <img src="src/img/ingredients/tomato-single.png" alt="tomato">
+          </picture>
 
-          <img class="burger-demo__onion burger-demo__onion--4" src="src/img/onion-single.png" alt="onion">
-          <img class="burger-demo__onion burger-demo__onion--5" src="src/img/onion-single.png" alt="onion">
-          <img class="burger-demo__onion burger-demo__onion--6" src="src/img/onion-single.png" alt="onion">
 
-          <img class="burger-demo__pickle burger-demo__pickle--4" src="src/img/pickle-single.png" alt="pickle">
-          <img class="burger-demo__pickle burger-demo__pickle--5" src="src/img/pickle-single.png" alt="pickle">
+          <picture class="burger-demo__pickle burger-demo__pickle--1">
+            <source srcset="src/img/ingredients/pickle-single.webp" type="image/webp">
+            <source srcset="src/img/ingredients/pickle-single.png" type="image/png">
+            <img src="src/img/ingredients/pickle-single.png" alt="pickle">
+          </picture>
+          <picture class="burger-demo__pickle burger-demo__pickle--2">
+            <source srcset="src/img/ingredients/pickle-single.webp" type="image/webp">
+            <source srcset="src/img/ingredients/pickle-single.png" type="image/png">
+            <img src="src/img/ingredients/pickle-single.png" alt="pickle">
+          </picture>
+          <picture class="burger-demo__pickle burger-demo__pickle--3">
+            <source srcset="src/img/ingredients/pickle-single.webp" type="image/webp">
+            <source srcset="src/img/ingredients/pickle-single.png" type="image/png">
+            <img src="src/img/ingredients/pickle-single.png" alt="pickle">
+          </picture>
 
-          <img class="burger-demo__mayo burger-demo__mayo--2" src="src/img/mayo.png" alt="mayo">
-          <img class="burger-demo__bun-top" src="src/img/bun-top.png" alt="bun-top">
+          <picture class="burger-demo__salad burger-demo__salad--2">
+            <source srcset="src/img/ingredients/salad.webp" type="image/webp">
+            <source srcset="src/img/ingredients/salad.png" type="image/png">
+            <img src="src/img/ingredients/salad.png" alt="salad">
+          </picture>
 
+          <picture class="burger-demo__onion burger-demo__onion--4">
+            <source srcset="src/img/ingredients/onion-single.webp" type="image/webp">
+            <source srcset="src/img/ingredients/onion-single.png" type="image/png">
+            <img src="src/img/ingredients/onion-single.png" alt="onion">
+          </picture>
+          <picture class="burger-demo__onion burger-demo__onion--5">
+            <source srcset="src/img/ingredients/onion-single.webp" type="image/webp">
+            <source srcset="src/img/ingredients/onion-single.png" type="image/png">
+            <img src="src/img/ingredients/onion-single.png" alt="onion">
+          </picture>
+          <picture class="burger-demo__onion burger-demo__onion--6">
+            <source srcset="src/img/ingredients/onion-single.webp" type="image/webp">
+            <source srcset="src/img/ingredients/onion-single.png" type="image/png">
+            <img src="src/img/ingredients/onion-single.png" alt="onion">
+          </picture>
+
+          <picture class="burger-demo__pickle burger-demo__pickle--4">
+            <source srcset="src/img/ingredients/pickle-single.webp" type="image/webp">
+            <source srcset="src/img/ingredients/pickle-single.png" type="image/png">
+            <img src="src/img/ingredients/pickle-single.png" alt="pickle">
+          </picture>
+          <picture class="burger-demo__pickle burger-demo__pickle--5">
+            <source srcset="src/img/ingredients/pickle-single.webp" type="image/webp">
+            <source srcset="src/img/ingredients/pickle-single.png" type="image/png">
+            <img src="src/img/ingredients/pickle-single.png" alt="pickle">
+          </picture>
+
+          <picture class="burger-demo__mayo burger-demo__mayo--2">
+            <source srcset="src/img/ingredients/mayo.webp" type="image/webp">
+            <source srcset="src/img/ingredients/mayo.png" type="image/png">
+            <img src="src/img/ingredients/mayo.png" alt="mayo">
+          </picture>
+
+          <picture class="burger-demo__bun-top">
+            <source srcset="src/img/ingredients/bun-top.webp" type="image/webp">
+            <source srcset="src/img/ingredients/bun-top.png" type="image/png">
+            <img src="src/img/ingredients/bun-top.png" alt="bun-top">
+          </picture>
 
           <a href="#create-burger" class="burger-demo__btn">Make a burger</a>
-          <img class="burger-demo__emoji burger-demo__emoji--thumb" src="src/img/emoji-thumb-up.svg"
-            alt="thumb up emoji">
-          <img class="burger-demo__emoji burger-demo__emoji--celebration" src="src/img/emoji-celebration.svg"
-            alt="celebration emoji">
-          <img class="burger-demo__emoji burger-demo__emoji--explosion" src="src/img/emoji-explosion.svg"
-            alt="explosion emoji">
-          <img class="burger-demo__emoji burger-demo__emoji--hearts" src="src/img/emoji-hearts.svg"
-            alt="hearts eyes emoji">
+
+          <picture class="burger-demo__emoji burger-demo__emoji--thumb">
+            <source srcset="src/img/emojis/emoji-thumb-up.webp" type="image/webp">
+            <source srcset="src/img/emojis/emoji-thumb-up.svg" type="image/png">
+            <img src="src/img/emojis/emoji-thumb-up.svg" alt="thumb up emoji">
+          </picture>
+          <picture class="burger-demo__emoji burger-demo__emoji--celebration">
+            <source srcset="src/img/emojis/emoji-celebration.webp" type="image/webp">
+            <source srcset="src/img/emojis/emoji-celebration.svg" type="image/png">
+            <img src="src/img/emojis/emoji-celebration.svg" alt="celebration emoji">
+          </picture>
+          <picture class="burger-demo__emoji burger-demo__emoji--explosion">
+            <source srcset="src/img/emojis/emoji-explosion.webp" type="image/webp">
+            <source srcset="src/img/emojis/emoji-explosion.svg" type="image/png">
+            <img src="src/img/emojis/emoji-explosion.svg" alt="explosion emoji">
+          </picture>
+          <picture class="burger-demo__emoji burger-demo__emoji--hearts">
+            <source srcset="src/img/emojis/emoji-hearts.webp" type="image/webp">
+            <source srcset="src/img/emojis/emoji-hearts.svg" type="image/png">
+            <img src="src/img/emojis/emoji-hearts.svg" alt="hearts eyes emoji">
+          </picture>
         </div>
       </div>
 
@@ -98,7 +214,11 @@
       <section class="burger">
         <div class="burger__ingredients"></div>
         <div class="tooltip hidden">
-          <img class="tooltip__emoji" src="src/img/emoji-shocked.png">
+          <picture>
+            <source srcset="src/img/emojis/emoji-shocked.webp" type="image/webp">
+            <source srcset="src/img/emojis/emoji-shocked.png" type="image/png">
+            <img class="tooltip__emoji" src="src/img/emojis/emoji-shocked.png">
+          </picture>
           <p>Are you sure?</p>
         </div>
       </section>

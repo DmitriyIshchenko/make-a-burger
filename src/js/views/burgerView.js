@@ -1,5 +1,6 @@
 import View from "./View";
-import images from "url:../../img/*.png";
+import imagesPng from "url:../../img/ingredients/*.png";
+import imagesWebp from "url:../../img/ingredients/*.webp";
 
 class BurgerView extends View {
   _parentElement = document.querySelector(".burger__ingredients");
@@ -29,14 +30,13 @@ class BurgerView extends View {
   _generateIngredientMarkup(ing, index, array) {
     const isNew = this && index === array.length - 1;
     return `
-    <img 
-      class="burger__ingredient burger__ingredient--${ing} ${
+    <picture class="burger__ingredient burger__ingredient--${ing} ${
       isNew ? "burger__ingredient--new" : ""
-    }" 
-      style="bottom:${index * 5}%" 
-      src="${images[ing]}" 
-      alt="${ing}"
-    >
+    }" style="bottom:${index * 5}%" >
+      <source srcset="${imagesWebp[ing]}" type='image/webp'>
+      <source srcset="${imagesPng[ing]}" type='image/png'>
+      <img src="${imagesPng[ing]}" alt="${ing}" />
+    </picture>
     `;
   }
 }

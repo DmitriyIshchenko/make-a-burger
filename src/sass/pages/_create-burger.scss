@@ -53,6 +53,10 @@
     margin-bottom: 0;
     transition: all $anim-duration;
 
+    img {
+      width: 100%;
+    }
+
     &--new {
       animation: drop $anim-duration ease-in-out;
       animation-fill-mode: forwards;
