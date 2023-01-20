@@ -6,50 +6,34 @@ import tooltipView from "./views/tooltipView";
 import navigationView from "./views/navigationView";
 import checkoutView from "./views/checkoutView";
 import burgerDemoView from "./views/burgerDemoView";
-import { wait } from "./helpers";
-import {
-  TOP_BUN_TIMEOUT_SEC,
-  ANIMATION_DURATION_SEC,
-  CALORIES_LIMIT_POPUP,
-} from "./config";
+import { TOP_BUN_TIMEOUT_SEC, CALORIES_LIMIT_POPUP } from "./config";
 
 let timeoutId;
-const controlBurger = async function (name, updateTo) {
+const controlBurger = function (name, updateTo) {
   clearTimeout(timeoutId);
 
-  const currentQt = model.state.recipe.ingredients[name].quantity;
-  if (currentQt < updateTo) {
-    if (model.state.recipe.order.at(-1) === "bun-top")
-      await controlDeleteIngredient("bun-top");
-    controlAddIngredient(name);
-  } else {
-    controlDeleteIngredient(name);
-  }
+  controlUpdateIngredients(name, updateTo);
+  controlAutoTopBun();
 
   model.getTotals().calories > CALORIES_LIMIT_POPUP
     ? tooltipView.showTooltip()
     : tooltipView.hideTooltip();
+};
 
+const controlAutoTopBun = () => {
+  // if there is no bun on top, add after timeout
   timeoutId = setTimeout(() => {
-    controlAddIngredient("bun-top");
+    if (model.state.recipe.order.at(-1) !== "bun-top") {
+      controlUpdateIngredients("bun-top", 1);
+    }
   }, TOP_BUN_TIMEOUT_SEC * 1000);
 };
 
-const controlAddIngredient = function (name) {
-  model.addIngredient(name);
-  burgerView.render(model.state.recipe.order, true);
+const controlUpdateIngredients = function (name, updateTo) {
+  const indexToDelete = model.updateIngredients(name, updateTo);
   ingredientsView.update(model.state.recipe.ingredients);
   summaryView.update(model.getTotals());
-};
-
-const controlDeleteIngredient = async function (name) {
-  const index = model.deleteIngredient(name);
-  burgerView.animateDeleted(index);
-  ingredientsView.update(model.state.recipe.ingredients);
-  summaryView.update(model.getTotals());
-
-  await wait(ANIMATION_DURATION_SEC);
-  burgerView.render(model.state.recipe.order);
+  burgerView.update(model.state.recipe.order, indexToDelete);
 };
 
 const init = function () {

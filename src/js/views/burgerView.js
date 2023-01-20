@@ -5,34 +5,56 @@ import imagesWebp from "url:../../img/ingredients/*.webp";
 class BurgerView extends View {
   _parentElement = document.querySelector(".burger__ingredients");
 
-  animateDeleted(index) {
-    const images = Array.from(
-      this._parentElement.querySelectorAll(".burger__ingredient")
-    );
+  update(data, toDeleteIndex) {
+    if (toDeleteIndex) {
+      const images = Array.from(
+        this._parentElement.querySelectorAll(".burger__ingredient")
+      );
 
-    // shift to the left deleted element
-    const target = images[index];
-    target.classList.add("burger__ingredient--delete");
+      // shift target element to the left
+      const target = images[toDeleteIndex];
+      target.classList.add("burger__ingredient--delete");
 
-    // move down ingredients on top of deleted ingredients
-    const ingredientsOnTop = images.slice(index + 1);
-    ingredientsOnTop.forEach((item) =>
-      item.classList.add("burger__ingredient--top")
-    );
+      // re-render after animation
+      target.addEventListener("animationend", this.render.bind(this, data));
+
+      // move down ingredients on top of deleted ingredients
+      const topIngredients = images.slice(toDeleteIndex + 1);
+      topIngredients.forEach((item) => {
+        const bottom = parseInt(item.style.bottom) - 5 + "%";
+        item.style.bottom = bottom;
+      });
+    } else {
+      const topBunEl = this._parentElement.querySelector(
+        ".burger__ingredient--bun-top"
+      );
+
+      // if there is no bun on top, re-render immediately, otherwise after animation
+      if (topBunEl) {
+        topBunEl.classList.add("burger__ingredient--delete");
+        topBunEl.addEventListener(
+          "animationend",
+          this._renderNew.bind(this, data)
+        );
+      } else this._renderNew(data);
+    }
   }
 
-  _generateMarkup(withNew) {
-    return this._data
-      .map(this._generateIngredientMarkup.bind(withNew))
-      .join("");
+  _renderNew(data) {
+    this.render(data);
+    this._parentElement
+      .querySelector(".burger__ingredient:last-child")
+      .classList.add("burger__ingredient--new");
   }
 
-  _generateIngredientMarkup(ing, index, array) {
-    const isNew = this && index === array.length - 1;
+  _generateMarkup() {
+    return this._data.map(this._generateIngredientMarkup).join("");
+  }
+
+  _generateIngredientMarkup(ing, index, arr) {
     return `
-    <picture class="burger__ingredient burger__ingredient--${ing} ${
-      isNew ? "burger__ingredient--new" : ""
-    }" style="bottom:${index * 5}%" >
+    <picture class="burger__ingredient burger__ingredient--${ing}"
+     style="bottom:${index * 5}%" >
       <source srcset="${imagesWebp[ing]}" type='image/webp'>
       <source srcset="${imagesPng[ing]}" type='image/png'>
       <img src="${imagesPng[ing]}" alt="${ing}" />

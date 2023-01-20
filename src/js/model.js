@@ -88,6 +88,10 @@ export const state = {
 };
 
 export const addIngredient = function (name) {
+  // If there is a bun on top, then delete it
+  if (state.recipe.order.at(-1) === "bun-top") {
+    deleteIngredient("bun-top");
+  }
   state.recipe.ingredients[name].quantity += 1;
   state.recipe.order.push(name);
 };
@@ -99,6 +103,12 @@ export const deleteIngredient = function (name) {
   state.recipe.order.splice(index, 1);
 
   return index;
+};
+
+export const updateIngredients = function (name, updateTo) {
+  return state.recipe.ingredients[name].quantity < updateTo
+    ? addIngredient(name)
+    : deleteIngredient(name);
 };
 
 export const getTotals = function () {
