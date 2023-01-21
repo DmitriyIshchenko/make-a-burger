@@ -6,6 +6,7 @@ import tooltipView from "./views/tooltipView";
 import navigationView from "./views/navigationView";
 import checkoutView from "./views/checkoutView";
 import burgerDemoView from "./views/burgerDemoView";
+import formView from "./views/formView";
 import { TOP_BUN_TIMEOUT_SEC, CALORIES_LIMIT_POPUP } from "./config";
 
 let timeoutId;

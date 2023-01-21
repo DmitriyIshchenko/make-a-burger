@@ -81,6 +81,10 @@
     &:not(:placeholder-shown) {
       padding-top: 1.75rem;
     }
+
+    &--invalid {
+      border: 1px solid $color-red;
+    }
   }
 
   &__label {
@@ -106,13 +110,17 @@
     transform: translate(50%, -50%);
     width: 2rem;
     aspect-ratio: 1;
+    transition: all $anim-duration;
 
     fill: $color-grey-dark;
   }
 
-  &__input:valid ~ &__icon,
   &__input:focus ~ &__icon {
     fill: $color-blue;
+  }
+
+  &__input--invalid ~ &__icon {
+    fill: $color-red;
   }
 
   &__controls {

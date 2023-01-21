@@ -256,15 +256,16 @@
       </section>
     </div>
   </main>
+
   <div class="popup hidden">
     <button type="button" class="popup__close">&times;</button>
     <form class="form">
-      <div class="form__header">
+      <header class="form__header">
         <svg class="form__header-icon">
           <use href="src/img/sprite.svg#record"></use>
         </svg>
         <h2 class="form__title">Checkout</h2>
-      </div>
+      </header>
 
       <fieldset class="form__set">
         <div class="form__group">
@@ -301,7 +302,7 @@
         </div>
       </fieldset>
       <div class="form__controls">
-        <button type="button" class="form__btn form__btn--cancel">Cancel</button>
+        <input type="reset" value="Cancel" class="form__btn form__btn--cancel"></input>
         <button class="form__btn form__btn--submit" type="submit">Checkout</button>
       </div>
     </form>
