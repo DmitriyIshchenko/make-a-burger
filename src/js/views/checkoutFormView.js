@@ -1,6 +1,6 @@
 import View from "./View";
 
-class FormView extends View {
+class CheckoutFormView extends View {
   _parentElement = document.querySelector(".form");
   _phoneInput = this._parentElement.querySelector("input[type='tel']");
   _submitBtn = this._parentElement.querySelector("button[type='submit']");
@@ -78,4 +78,4 @@ class FormView extends View {
   }
 }
 
-export default new FormView();
+export default new CheckoutFormView();

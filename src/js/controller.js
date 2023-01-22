@@ -4,9 +4,9 @@ import ingredientsView from "./views/ingredientsView";
 import summaryView from "./views/summaryView";
 import tooltipView from "./views/tooltipView";
 import navigationView from "./views/navigationView";
-import checkoutView from "./views/checkoutView";
+import popupView from "./views/popupView";
 import burgerDemoView from "./views/burgerDemoView";
-import formView from "./views/formView";
+import checkoutFormView from "./views/checkoutFormView";
 import { TOP_BUN_TIMEOUT_SEC, CALORIES_LIMIT_POPUP } from "./config";
 
 let timeoutId;

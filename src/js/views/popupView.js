@@ -1,5 +1,5 @@
 import View from "./View";
-class CheckoutView extends View {
+class PopupView extends View {
   _popup = document.querySelector(".popup");
   _overlay = document.querySelector(".overlay");
 
@@ -24,4 +24,4 @@ class CheckoutView extends View {
   }
 }
 
-export default new CheckoutView();
+export default new PopupView();
