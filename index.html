@@ -269,37 +269,43 @@
 
       <fieldset class="form__set">
         <div class="form__group">
-          <input id="name" type="text" class="form__input" required placeholder="Your name" pattern="\S+">
+          <input id="name" data-type="name" type="text" class="form__input" required placeholder="Your name"
+            pattern="\S+">
           <svg class="form__icon">
             <use href="src/img/sprite.svg#face"></use>
           </svg>
           <label for="name" class="form__label">Your name</label>
+          <label class="form__invalid-message">Required field</label>
         </div>
 
         <div class="form__group">
-          <input id="phone" type="tel" pattern="^\+\d \(\d{3}\) \d{3}-\d{4}" class="form__input"
+          <input id="phone" data-type="phone" type="tel" pattern="^\+\d \(\d{3}\) \d{3}-\d{4}" class="form__input"
             placeholder="Phone number" required>
           <svg class="form__icon">
             <use href="src/img/sprite.svg#phone"></use>
           </svg>
           <label for="phone" class="form__label">Phone number</label>
+          <label class="form__invalid-message">Invalid phone format</label>
         </div>
 
         <div class="form__group">
-          <input id="address" type="text" class="form__input" placeholder="Shipping address" required pattern="\S+">
+          <input id="address" data-type="address" type="text" class="form__input" placeholder="Shipping address"
+            required pattern="\S+">
           <svg class="form__icon">
             <use href="src/img/sprite.svg#route"></use>
           </svg>
           <label for="address" class="form__label">Shipping address</label>
+          <label class="form__invalid-message">Required field</label>
         </div>
 
         <div class="form__group">
-          <input id=time" class="form__input" type="time" min="09:00" max="22:00" placeholder="Time to deliver"
-            value='14:00' required>
+          <input id="time" data-type="time" class="form__input" type="time" min="09:00" max="22:00"
+            placeholder="Time to deliver" value='14:00' required>
           <svg class="form__icon">
             <use href="src/img/sprite.svg#time"></use>
           </svg>
           <label for="time" class="form__label">Time to deliver</label>
+          <label class="form__invalid-message">Invalid time format</label>
         </div>
       </fieldset>
       <div class="form__controls">

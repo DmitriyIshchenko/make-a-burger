@@ -23,7 +23,7 @@
     border: none;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    gap: 2rem;
     padding: 1.5rem;
 
     border-bottom: 2px solid $color-grey-light-1;
@@ -98,6 +98,17 @@
     cursor: text;
   }
 
+  &__invalid-message {
+    position: absolute;
+    top: 105%;
+    left: 1rem;
+    opacity: 0;
+    transition: all $anim-duration;
+
+    font-size: 1.2rem;
+    color: $color-red;
+  }
+
   &__input:placeholder-shown ~ &__label {
     top: 2rem;
     font-size: 1.6rem;
@@ -121,6 +132,10 @@
 
   &__input--invalid ~ &__icon {
     fill: $color-red;
+  }
+
+  &__input--invalid ~ &__invalid-message {
+    opacity: 1;
   }
 
   &__controls {
