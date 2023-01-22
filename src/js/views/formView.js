@@ -7,9 +7,18 @@ class FormView extends View {
 
   constructor() {
     super();
+    this._addResetHandler();
     this._addPhoneFocusHandler();
     this._addPhoneMaskHandler();
     this._addValidationHandler();
+  }
+
+  _addResetHandler() {
+    this._parentElement.addEventListener("reset", (e) => {
+      e.target
+        .querySelectorAll(".form__input")
+        .forEach((input) => input.classList.remove("form__input--invalid"));
+    });
   }
 
   _addPhoneFocusHandler() {
