@@ -1,3 +1,4 @@
+import { CLOSING_HOUR, OPENING_HOUR } from "../config";
 import View from "./View";
 
 class CheckoutFormView extends View {
@@ -43,6 +44,12 @@ class CheckoutFormView extends View {
 
   _addValidationHandler() {
     this._parentElement.addEventListener(
+      "input",
+      this._toggleInvalid.bind(this)
+    );
+
+    // for empty text inputs
+    this._parentElement.addEventListener(
       "focusout",
       this._toggleInvalid.bind(this)
     );
@@ -60,10 +67,17 @@ class CheckoutFormView extends View {
       case "phone":
         isValid = this._validatePhone(value);
         break;
+      case "time":
+        isValid = this._validateTime(value);
+        break;
       default:
         return;
     }
     if (!isValid) {
+      if (type === "time")
+        e.target.setCustomValidity(
+          "Looks like it's not our working hours. Come back later! :)"
+        );
       e.target.classList.add("form__input--invalid");
     } else e.target.classList.remove("form__input--invalid");
   }
@@ -75,6 +89,14 @@ class CheckoutFormView extends View {
   _validatePhone(phone) {
     const regex = /^\+\d \(\d{3}\) \d{3}-\d{4}/;
     return regex.test(phone);
+  }
+
+  _validateTime(time) {
+    const openingTime = new Date().setHours(OPENING_HOUR, 0, 0, 0);
+    const closingTime = new Date().setHours(CLOSING_HOUR, 0, 0, 0);
+    const deliveryTime = new Date(time);
+
+    return deliveryTime >= openingTime && deliveryTime <= closingTime;
   }
 }
 
