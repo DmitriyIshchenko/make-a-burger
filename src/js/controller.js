@@ -7,6 +7,7 @@ import navigationView from "./views/navigationView";
 import popupView from "./views/popupView";
 import burgerDemoView from "./views/burgerDemoView";
 import checkoutFormView from "./views/checkoutFormView";
+import timeSelectorView from "./views/timeSelectorView";
 import { TOP_BUN_TIMEOUT_SEC, CALORIES_LIMIT_POPUP } from "./config";
 
 let timeoutId;
@@ -35,6 +36,7 @@ const controlUpdateIngredients = function (name, updateTo) {
   ingredientsView.update(model.state.recipe.ingredients);
   summaryView.update(model.getTotals());
   burgerView.update(model.state.recipe.order, indexToDelete);
+  timeSelectorView.render(model.getDeliveryTimeOptions());
 };
 
 const init = function () {
@@ -42,6 +44,7 @@ const init = function () {
     burgerView.render(model.state.recipe.order);
     ingredientsView.render(model.state.recipe.ingredients);
     summaryView.update(model.getTotals());
+    timeSelectorView.render(model.getDeliveryTimeOptions());
   });
   ingredientsView.addHandlerUpdateQuantity(controlBurger);
 };

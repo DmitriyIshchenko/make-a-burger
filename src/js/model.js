@@ -1,3 +1,5 @@
+import { CLOSING_HOUR, DELIVERY_TIME_HOURS, OPENING_HOUR } from "./config";
+
 export const state = {
   recipe: {
     ingredients: {
@@ -121,4 +123,22 @@ export const getTotals = function () {
     },
     { calories: 0, price: 0, time: 0, mass: 0 }
   );
+};
+
+export const getDeliveryTimeOptions = function () {
+  const timeOptions = [];
+  for (let i = OPENING_HOUR; i <= CLOSING_HOUR; i++) {
+    const date = new Date();
+    date.setHours(i, 0, 0, 0);
+    timeOptions.push(date);
+  }
+
+  const now = new Date();
+  const estimatedDeliveryTime = new Date(
+    +now + DELIVERY_TIME_HOURS * 60 * 60 * 1000 + getTotals().time * 60 * 1000
+  );
+
+  timeOptions.unshift(new Date(estimatedDeliveryTime));
+
+  return timeOptions.filter((time) => time >= estimatedDeliveryTime);
 };
