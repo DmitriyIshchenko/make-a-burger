@@ -25,6 +25,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     padding: 1.5rem;
+    padding-bottom: 2rem;
 
     border-bottom: 2px solid $color-grey-light-1;
 
@@ -39,14 +40,16 @@
     position: relative;
   }
 
-  input[type="time"] {
-    &::-webkit-calendar-picker-indicator {
-      background: transparent url("../img/arrow-down.svg");
-      position: absolute;
-      right: 1.5rem;
-      top: 50%;
-      transform: translateY(-50%);
-    }
+  &__input[data-type="time"] {
+    // Arrow
+    appearance: none;
+    background: url("../img/arrow-down.svg");
+    background-repeat: no-repeat;
+    background-position: center right 1rem;
+    cursor: pointer;
+  }
+  &__input[data-type="time"] ~ &__label {
+    cursor: default;
   }
 
   &__input {
@@ -58,6 +61,7 @@
 
     border: none;
     border: 1px solid $color-grey-light-1;
+    background: transparent;
     border-radius: 1rem;
 
     transition: all $anim-duration;

@@ -299,13 +299,13 @@
         </div>
 
         <div class="form__group">
-          <input id="time" data-type="time" class="form__input" type="time" min="09:00" max="22:00"
-            placeholder="Time to deliver" value='14:00' required>
+          <select name="time" data-type="time" id="time" class="form__input" required>
+          </select>
           <svg class="form__icon">
             <use href="src/img/sprite.svg#time"></use>
           </svg>
-          <label for="time" class="form__label">Time to deliver</label>
-          <label class="form__invalid-message">Invalid time format</label>
+          <label for="time" class="form__label">Time to deliver (10:00 - 20:00)</label>
+          <label class="form__invalid-message">We are closed at this time</label>
         </div>
       </fieldset>
       <div class="form__controls">
