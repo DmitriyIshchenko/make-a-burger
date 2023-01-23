@@ -126,6 +126,7 @@
     fill: $color-grey-dark;
   }
 
+  &__input:not(:placeholder-shown).form__input:not(&__input--invalid) ~ &__icon,
   &__input:focus ~ &__icon {
     fill: $color-blue;
   }
