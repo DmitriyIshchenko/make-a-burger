@@ -1,4 +1,4 @@
-import View from "./View";
+import View from "../View";
 
 class TimeSelector extends View {
   _parentElement = document.querySelector(".form__input#time");

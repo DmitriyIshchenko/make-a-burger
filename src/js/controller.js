@@ -6,8 +6,8 @@ import burgerTooltipView from "./views/Burger/burgerTooltipView";
 import navigationView from "./views/UI/navigationView";
 import modalView from "./views/UI/modalView";
 import burgerDemoView from "./views/Burger/burgerDemoView";
-import checkoutFormView from "./views/checkoutFormView";
-import timeSelectorView from "./views/timeSelectorView";
+import checkoutFormView from "./views/Checkout/checkoutFormView";
+import timeSelectorView from "./views/Checkout/timeSelectorView";
 import { TOP_BUN_TIMEOUT_SEC } from "./config";
 
 let timeoutId;
