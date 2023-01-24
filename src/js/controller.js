@@ -1,11 +1,11 @@
 import * as model from "./model";
-import burgerView from "./views/burgerView";
-import ingredientsView from "./views/ingredientsView";
-import summaryView from "./views/summaryView";
-import burgerTooltipView from "./views/burgerTooltipView";
+import burgerView from "./views/Burger/burgerView";
+import ingredientsView from "./views/Burger/ingredientsView";
+import summaryView from "./views/Burger/summaryView";
+import burgerTooltipView from "./views/Burger/burgerTooltipView";
 import navigationView from "./views/UI/navigationView";
 import modalView from "./views/UI/modalView";
-import burgerDemoView from "./views/burgerDemoView";
+import burgerDemoView from "./views/Burger/burgerDemoView";
 import checkoutFormView from "./views/checkoutFormView";
 import timeSelectorView from "./views/timeSelectorView";
 import { TOP_BUN_TIMEOUT_SEC } from "./config";

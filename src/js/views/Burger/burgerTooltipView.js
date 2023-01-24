@@ -1,7 +1,7 @@
-import TooltipView from "./UI/tooltipView";
-import imgPng from "url:../../img/emojis/emoji-shocked.png";
-import imgWebp from "url:../../img/emojis/emoji-shocked.webp";
-import { CALORIES_LIMIT_POPUP } from "../config";
+import TooltipView from "../UI/tooltipView";
+import imgPng from "url:../../../img/emojis/emoji-shocked.png";
+import imgWebp from "url:../../../img/emojis/emoji-shocked.webp";
+import { CALORIES_LIMIT_POPUP } from "../../config";
 
 class burgerTooltipView extends TooltipView {
   _parentElement = document.querySelector(".burger__tooltip ");

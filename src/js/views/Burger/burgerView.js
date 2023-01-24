@@ -1,6 +1,6 @@
-import View from "./View";
-import imagesPng from "url:../../img/ingredients/*.png";
-import imagesWebp from "url:../../img/ingredients/*.webp";
+import View from "../View";
+import imagesPng from "url:../../../img/ingredients/*.png";
+import imagesWebp from "url:../../../img/ingredients/*.webp";
 
 class BurgerView extends View {
   _parentElement = document.querySelector(".burger__ingredients");
