@@ -114,7 +114,7 @@ export const updateIngredients = function (name, updateTo) {
 };
 
 export const getTotals = function () {
-  return Object.values(state.recipe.ingredients).reduce(
+  const totals = Object.values(state.recipe.ingredients).reduce(
     (total, ingredient) => {
       Object.keys(total).forEach((key) => {
         total[key] += ingredient[key] * ingredient.quantity;
@@ -123,6 +123,8 @@ export const getTotals = function () {
     },
     { calories: 0, price: 0, time: 0, mass: 0 }
   );
+  totals.completed = state.recipe.order.at(-1) === "bun-top";
+  return totals;
 };
 
 export const getDeliveryTimeOptions = function () {

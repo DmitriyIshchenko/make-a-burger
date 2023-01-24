@@ -1,4 +1,4 @@
-export const TOP_BUN_TIMEOUT_SEC = 3;
+export const TOP_BUN_TIMEOUT_SEC = 2;
 export const CALORIES_LIMIT_POPUP = 3000;
 
 export const OPENING_HOUR = 10;

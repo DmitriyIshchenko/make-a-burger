@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: center;
   border: none;
+  border: 1px solid transparent;
   border-radius: 100rem;
   padding: 1.5rem 2.5rem;
   background-color: $color-blue;
@@ -19,6 +20,13 @@
   &:hover,
   &:active {
     background-color: lighten($color-blue, 5%);
+  }
+
+  &:disabled {
+    background-color: transparent;
+    border: 1px solid $color-blue;
+    color: $color-blue;
+    cursor: default;
   }
 }
 

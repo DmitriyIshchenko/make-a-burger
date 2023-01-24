@@ -22,6 +22,12 @@ class PopupView extends View {
     this._popup.classList.toggle("hidden");
     this._overlay.classList.toggle("hidden");
   }
+
+  update(data) {
+    if (!data.completed) {
+      this._checkoutBtn.setAttribute("disabled", "");
+    } else this._checkoutBtn.removeAttribute("disabled");
+  }
 }
 
 export default new PopupView();

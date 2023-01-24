@@ -37,6 +37,7 @@ const controlUpdateIngredients = function (name, updateTo) {
   summaryView.update(model.getTotals());
   burgerView.update(model.state.recipe.order, indexToDelete);
   timeSelectorView.render(model.getDeliveryTimeOptions());
+  popupView.update(model.getTotals());
 };
 
 const init = function () {
@@ -45,6 +46,7 @@ const init = function () {
     ingredientsView.render(model.state.recipe.ingredients);
     summaryView.update(model.getTotals());
     timeSelectorView.render(model.getDeliveryTimeOptions());
+    popupView.update(model.getTotals());
   });
   ingredientsView.addHandlerUpdateQuantity(controlBurger);
 };
