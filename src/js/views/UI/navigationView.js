@@ -1,4 +1,4 @@
-import View from "./View";
+import View from "../View";
 class TabView extends View {
   _navParent = document.querySelector(".nav");
   _burgerParent = document.querySelector(".burger-demo");
