@@ -4,7 +4,7 @@ import ingredientsView from "./views/ingredientsView";
 import summaryView from "./views/summaryView";
 import burgerTooltipView from "./views/burgerTooltipView";
 import navigationView from "./views/navigationView";
-import popupView from "./views/popupView";
+import modalView from "./views/UI/modalView";
 import burgerDemoView from "./views/burgerDemoView";
 import checkoutFormView from "./views/checkoutFormView";
 import timeSelectorView from "./views/timeSelectorView";
@@ -35,7 +35,7 @@ const controlUpdateIngredients = function (name, updateTo) {
   summaryView.update(model.getTotals());
   ingredientsView.update(model.state.recipe.ingredients);
 
-  popupView.update(model.getTotals());
+  modalView.update(model.getTotals());
   timeSelectorView.render(model.getDeliveryTimeOptions());
 };
 
@@ -47,7 +47,7 @@ const init = function () {
     summaryView.update(model.getTotals());
     ingredientsView.render(model.state.recipe.ingredients);
 
-    popupView.update(model.getTotals());
+    modalView.update(model.getTotals());
     timeSelectorView.render(model.getDeliveryTimeOptions());
   });
   ingredientsView.addHandlerUpdateQuantity(controlBurger);
