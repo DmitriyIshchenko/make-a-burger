@@ -23,8 +23,9 @@
     border: none;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    gap: 2rem;
     padding: 1.5rem;
+    padding-bottom: 2rem;
 
     border-bottom: 2px solid $color-grey-light-1;
 
@@ -39,14 +40,16 @@
     position: relative;
   }
 
-  input[type="time"] {
-    &::-webkit-calendar-picker-indicator {
-      background: transparent url("../img/arrow-down.svg");
-      position: absolute;
-      right: 1.5rem;
-      top: 50%;
-      transform: translateY(-50%);
-    }
+  &__input[data-type="time"] {
+    // Arrow
+    appearance: none;
+    background: url("../img/arrow-down.svg");
+    background-repeat: no-repeat;
+    background-position: center right 1rem;
+    cursor: pointer;
+  }
+  &__input[data-type="time"] ~ &__label {
+    cursor: default;
   }
 
   &__input {
@@ -58,6 +61,7 @@
 
     border: none;
     border: 1px solid $color-grey-light-1;
+    background: transparent;
     border-radius: 1rem;
 
     transition: all $anim-duration;
@@ -81,6 +85,10 @@
     &:not(:placeholder-shown) {
       padding-top: 1.75rem;
     }
+
+    &--invalid {
+      border: 1px solid $color-red;
+    }
   }
 
   &__label {
@@ -92,6 +100,17 @@
     transition: all $anim-duration;
     color: $color-grey-dark;
     cursor: text;
+  }
+
+  &__invalid-message {
+    position: absolute;
+    top: 105%;
+    left: 1rem;
+    opacity: 0;
+    transition: all $anim-duration;
+
+    font-size: 1.2rem;
+    color: $color-red;
   }
 
   &__input:placeholder-shown ~ &__label {
@@ -106,13 +125,22 @@
     transform: translate(50%, -50%);
     width: 2rem;
     aspect-ratio: 1;
+    transition: all $anim-duration;
 
     fill: $color-grey-dark;
   }
 
-  &__input:valid ~ &__icon,
+  &__input:not(:placeholder-shown).form__input:not(&__input--invalid) ~ &__icon,
   &__input:focus ~ &__icon {
     fill: $color-blue;
+  }
+
+  &__input--invalid ~ &__icon {
+    fill: $color-red;
+  }
+
+  &__input--invalid ~ &__invalid-message {
+    opacity: 1;
   }
 
   &__controls {

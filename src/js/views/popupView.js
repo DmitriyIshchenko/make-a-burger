@@ -1,5 +1,5 @@
 import View from "./View";
-class CheckoutView extends View {
+class PopupView extends View {
   _popup = document.querySelector(".popup");
   _overlay = document.querySelector(".overlay");
 
@@ -22,6 +22,12 @@ class CheckoutView extends View {
     this._popup.classList.toggle("hidden");
     this._overlay.classList.toggle("hidden");
   }
+
+  update(data) {
+    if (!data.completed) {
+      this._checkoutBtn.setAttribute("disabled", "");
+    } else this._checkoutBtn.removeAttribute("disabled");
+  }
 }
 
-export default new CheckoutView();
+export default new PopupView();
