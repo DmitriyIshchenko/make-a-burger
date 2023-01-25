@@ -1,4 +1,4 @@
-import View from "./View";
+import View from "../View";
 
 class BurgerDemoView extends View {
   _parentElement = document.querySelector(".burger-demo");

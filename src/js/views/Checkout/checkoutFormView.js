@@ -1,5 +1,5 @@
-import { CLOSING_HOUR, OPENING_HOUR } from "../config";
-import View from "./View";
+import { CLOSING_HOUR, OPENING_HOUR } from "../../config";
+import View from "../View";
 
 class CheckoutFormView extends View {
   _parentElement = document.querySelector(".form");

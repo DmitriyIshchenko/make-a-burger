@@ -1,14 +1,14 @@
 import * as model from "./model";
-import burgerView from "./views/burgerView";
-import ingredientsView from "./views/ingredientsView";
-import summaryView from "./views/summaryView";
-import tooltipView from "./views/tooltipView";
-import navigationView from "./views/navigationView";
-import popupView from "./views/popupView";
-import burgerDemoView from "./views/burgerDemoView";
-import checkoutFormView from "./views/checkoutFormView";
-import timeSelectorView from "./views/timeSelectorView";
-import { TOP_BUN_TIMEOUT_SEC, CALORIES_LIMIT_POPUP } from "./config";
+import burgerView from "./views/Burger/burgerView";
+import ingredientsView from "./views/Burger/ingredientsView";
+import summaryView from "./views/Burger/summaryView";
+import burgerTooltipView from "./views/Burger/burgerTooltipView";
+import navigationView from "./views/UI/navigationView";
+import modalView from "./views/UI/modalView";
+import burgerDemoView from "./views/Burger/burgerDemoView";
+import checkoutFormView from "./views/Checkout/checkoutFormView";
+import timeSelectorView from "./views/Checkout/timeSelectorView";
+import { TOP_BUN_TIMEOUT_SEC } from "./config";
 
 let timeoutId;
 const controlBurger = function (name, updateTo) {
@@ -16,10 +16,6 @@ const controlBurger = function (name, updateTo) {
 
   controlUpdateIngredients(name, updateTo);
   controlAutoTopBun();
-
-  model.getTotals().calories > CALORIES_LIMIT_POPUP
-    ? tooltipView.showTooltip()
-    : tooltipView.hideTooltip();
 };
 
 const controlAutoTopBun = () => {
@@ -33,20 +29,26 @@ const controlAutoTopBun = () => {
 
 const controlUpdateIngredients = function (name, updateTo) {
   const indexToDelete = model.updateIngredients(name, updateTo);
-  ingredientsView.update(model.state.recipe.ingredients);
-  summaryView.update(model.getTotals());
   burgerView.update(model.state.recipe.order, indexToDelete);
+  burgerTooltipView.update(model.getTotals());
+
+  summaryView.update(model.getTotals());
+  ingredientsView.update(model.state.recipe.ingredients);
+
+  modalView.update(model.getTotals());
   timeSelectorView.render(model.getDeliveryTimeOptions());
-  popupView.update(model.getTotals());
 };
 
 const init = function () {
   window.addEventListener("load", () => {
     burgerView.render(model.state.recipe.order);
-    ingredientsView.render(model.state.recipe.ingredients);
+    burgerTooltipView.render();
+
     summaryView.update(model.getTotals());
+    ingredientsView.render(model.state.recipe.ingredients);
+
+    modalView.update(model.getTotals());
     timeSelectorView.render(model.getDeliveryTimeOptions());
-    popupView.update(model.getTotals());
   });
   ingredientsView.addHandlerUpdateQuantity(controlBurger);
 };
