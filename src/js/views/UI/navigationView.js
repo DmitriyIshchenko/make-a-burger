@@ -44,8 +44,8 @@ class TabView extends View {
 
     // Switch tabs
     const tabs = document.querySelectorAll(".tab");
-    tabs.forEach((tab) => tab.classList.remove("tab--active"));
-    document.querySelector(href).classList.add("tab--active");
+    tabs.forEach((tab) => tab.classList.add("hidden"));
+    document.querySelector(href).classList.remove("hidden");
 
     // Close mobile nav
     this._navParent.classList.remove("nav-open");
