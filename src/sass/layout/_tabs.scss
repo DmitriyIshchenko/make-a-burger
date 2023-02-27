@@ -9,18 +9,12 @@
   gap: 3.5rem;
   align-items: center;
 
-  visibility: hidden;
-  opacity: 0;
-  width: 0;
-  height: 0;
-  overflow: hidden;
-
-  &--active {
-    visibility: visible;
-    overflow: visible;
-    opacity: 1;
-    width: auto;
-    height: 100%;
+  &.hidden {
+    visibility: hidden;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
   }
 
   @include respond(medium) {
