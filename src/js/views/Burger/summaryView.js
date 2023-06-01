@@ -1,8 +1,9 @@
-import View from "../View";
-import icons from "../../../img/sprite.svg";
+import View from '../View';
+import icons from '../../../img/sprite.svg';
 
 class SummaryView extends View {
-  _parentElement = document.querySelector(".summary");
+  _parentElement = document.querySelector('.summary');
+
   _generateMarkup() {
     return ` 
     <h2 class="summary__heading heading-secondary">Summary</h2>

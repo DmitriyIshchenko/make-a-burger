@@ -1,39 +1,39 @@
-import View from "../View";
-import imagesPng from "url:../../../img/ingredients/*.png";
-import imagesWebp from "url:../../../img/ingredients/*.webp";
+import imagesPng from '../../../img/ingredients/*.png';
+import imagesWebp from '../../../img/ingredients/*.webp';
+import View from '../View';
 
 class BurgerView extends View {
-  _parentElement = document.querySelector(".burger__ingredients");
+  _parentElement = document.querySelector('.burger__ingredients');
 
   update(data, toDeleteIndex) {
     if (toDeleteIndex) {
       const images = Array.from(
-        this._parentElement.querySelectorAll(".burger__ingredient")
+        this._parentElement.querySelectorAll('.burger__ingredient')
       );
 
       // shift target element to the left
       const target = images[toDeleteIndex];
-      target.classList.add("burger__ingredient--delete");
+      target.classList.add('burger__ingredient--delete');
 
       // re-render after animation
-      target.addEventListener("animationend", this.render.bind(this, data));
+      target.addEventListener('animationend', this.render.bind(this, data));
 
       // move down ingredients on top of deleted ingredients
       const topIngredients = images.slice(toDeleteIndex + 1);
       topIngredients.forEach((item) => {
-        const bottom = parseInt(item.style.bottom) - 5 + "%";
+        const bottom = `${parseInt(item.style.bottom, 10) - 5}%`;
         item.style.bottom = bottom;
       });
     } else {
       const topBunEl = this._parentElement.querySelector(
-        ".burger__ingredient--bun-top"
+        '.burger__ingredient--bun-top'
       );
 
       // if there is no bun on top, re-render immediately, otherwise after animation
       if (topBunEl) {
-        topBunEl.classList.add("burger__ingredient--delete");
+        topBunEl.classList.add('burger__ingredient--delete');
         topBunEl.addEventListener(
-          "animationend",
+          'animationend',
           this._renderNew.bind(this, data)
         );
       } else this._renderNew(data);
@@ -43,15 +43,15 @@ class BurgerView extends View {
   _renderNew(data) {
     this.render(data);
     this._parentElement
-      .querySelector(".burger__ingredient:last-child")
-      .classList.add("burger__ingredient--new");
+      .querySelector('.burger__ingredient:last-child')
+      .classList.add('burger__ingredient--new');
   }
 
   _generateMarkup() {
-    return this._data.map(this._generateIngredientMarkup).join("");
+    return this._data.map(this._generateIngredientMarkup).join('');
   }
 
-  _generateIngredientMarkup(ing, index, arr) {
+  _generateIngredientMarkup(ing, index) {
     return `
     <picture class="burger__ingredient burger__ingredient--${ing}"
      style="bottom:${index * 5}%" >

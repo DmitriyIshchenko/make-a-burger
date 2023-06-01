@@ -1,8 +1,10 @@
-import View from "../View";
+import View from '../View';
 
 class BurgerDemoView extends View {
-  _parentElement = document.querySelector(".burger-demo");
+  _parentElement = document.querySelector('.burger-demo');
+
   _animationsCounter = 0;
+
   constructor() {
     super();
     this.addAnimationHandler();
@@ -10,7 +12,7 @@ class BurgerDemoView extends View {
 
   addAnimationHandler() {
     this._parentElement.addEventListener(
-      "animationend",
+      'animationend',
       this._updateAnimationCounter.bind(this)
     );
   }
@@ -19,7 +21,7 @@ class BurgerDemoView extends View {
     this._animationsCounter += 1;
 
     if (this._animationsCounter === this._parentElement.getAnimations().length)
-      this._parentElement.dataset.type = "exploded";
+      this._parentElement.dataset.type = 'exploded';
   }
 }
 

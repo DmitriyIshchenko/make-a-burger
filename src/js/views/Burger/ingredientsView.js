@@ -1,13 +1,13 @@
-import View from "../View";
-import imagesPng from "url:../../../img/ingredients/*.png";
-import imagesWebp from "url:../../../img/ingredients/*.webp";
+import imagesPng from 'url:../../../img/ingredients/*.png';
+import imagesWebp from 'url:../../../img/ingredients/*.webp';
+import View from '../View';
 
-class ingredientsView extends View {
-  _parentElement = document.querySelector(".ingredients");
+class IngredientsView extends View {
+  _parentElement = document.querySelector('.ingredients');
 
   addHandlerUpdateQuantity(handler) {
-    this._parentElement.addEventListener("click", function (e) {
-      const btn = e.target.closest(".btn-update-quantity");
+    this._parentElement.addEventListener('click', (e) => {
+      const btn = e.target.closest('.btn-update-quantity');
 
       if (!btn) return;
 
@@ -20,9 +20,9 @@ class ingredientsView extends View {
 
   _generateMarkup() {
     return Object.values(this._data)
-      .filter((item) => !item.name.includes("-")) // exclude top and bottom buns
+      .filter((item) => !item.name.includes('-')) // exclude top and bottom buns
       .map(this._generateCardMarkup)
-      .join("");
+      .join('');
   }
 
   _generateCardMarkup(ingredient) {
@@ -64,4 +64,4 @@ class ingredientsView extends View {
   }
 }
 
-export default new ingredientsView();
+export default new IngredientsView();

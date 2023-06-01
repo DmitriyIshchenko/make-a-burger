@@ -8,7 +8,7 @@ export default class View {
 
     this._clear();
 
-    this._parentElement.insertAdjacentHTML("afterbegin", markup);
+    this._parentElement.insertAdjacentHTML('afterbegin', markup);
   }
 
   // changes only text and attributes
@@ -21,8 +21,8 @@ export default class View {
     const newDOM = document.createRange().createContextualFragment(newMarkup);
 
     // convert NodeLists to arrays
-    const newElements = Array.from(newDOM.querySelectorAll("*"));
-    const curElements = Array.from(this._parentElement.querySelectorAll("*"));
+    const newElements = Array.from(newDOM.querySelectorAll('*'));
+    const curElements = Array.from(this._parentElement.querySelectorAll('*'));
 
     /* 
       Compare both DOMS and update only elements containing text.
@@ -44,6 +44,6 @@ export default class View {
   }
 
   _clear() {
-    this._parentElement.innerHTML = "";
+    this._parentElement.innerHTML = '';
   }
 }

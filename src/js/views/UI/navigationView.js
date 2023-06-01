@@ -1,8 +1,11 @@
-import View from "../View";
+import View from '../View';
+
 class TabView extends View {
-  _navParent = document.querySelector(".nav");
-  _burgerParent = document.querySelector(".burger-demo");
-  _mobileNavBtn = document.querySelector(".mobile-nav-btn");
+  _navParent = document.querySelector('.nav');
+
+  _burgerParent = document.querySelector('.burger-demo');
+
+  _mobileNavBtn = document.querySelector('.mobile-nav-btn');
 
   constructor() {
     super();
@@ -12,43 +15,43 @@ class TabView extends View {
 
   addHandlerToggleTabs() {
     [this._burgerParent, this._navParent].forEach((elem) =>
-      elem.addEventListener("click", this._toggleTabs.bind(this))
+      elem.addEventListener('click', this._toggleTabs.bind(this))
     );
   }
 
   addHandlerToggleMobileNav() {
     this._mobileNavBtn.addEventListener(
-      "click",
+      'click',
       this._toggleMobileNav.bind(this)
     );
   }
 
   _toggleMobileNav() {
-    this._navParent.classList.toggle("nav-open");
+    this._navParent.classList.toggle('nav-open');
   }
 
   _toggleTabs(e) {
     e.preventDefault();
     const clickedLink =
-      e.target.closest(".nav__link") || e.target.closest(".burger-demo__btn");
+      e.target.closest('.nav__link') || e.target.closest('.burger-demo__btn');
     if (!clickedLink) return;
-    const href = clickedLink.getAttribute("href");
+    const href = clickedLink.getAttribute('href');
 
     // Update active nav link
-    const navLinks = this._navParent.querySelectorAll(".nav__link");
+    const navLinks = this._navParent.querySelectorAll('.nav__link');
     navLinks.forEach((link) => {
-      link.getAttribute("href") === href
-        ? link.classList.add("nav__link--active")
-        : link.classList.remove("nav__link--active");
+      if (link.getAttribute('href') === href)
+        link.classList.add('nav__link--active');
+      else link.classList.remove('nav__link--active');
     });
 
     // Switch tabs
-    const tabs = document.querySelectorAll(".tab");
-    tabs.forEach((tab) => tab.classList.add("hidden"));
-    document.querySelector(href).classList.remove("hidden");
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach((tab) => tab.classList.add('hidden'));
+    document.querySelector(href).classList.remove('hidden');
 
     // Close mobile nav
-    this._navParent.classList.remove("nav-open");
+    this._navParent.classList.remove('nav-open');
   }
 }
 
