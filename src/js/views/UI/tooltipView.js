@@ -1,21 +1,24 @@
-import View from "../View";
+import View from '../View';
 
 export default class tooltipView extends View {
   _parentElement;
+
   _tooltipMessage;
+
   _tooltipPngImg;
+
   _tooltipWebpImg;
 
   _showTooltip() {
-    this._parentElement.classList.remove("hidden");
+    this._parentElement.classList.remove('hidden');
   }
 
   _hideTooltip() {
-    this._parentElement.classList.add("hidden");
+    this._parentElement.classList.add('hidden');
   }
 
   _generateMarkup() {
-    let picture = "";
+    let picture = '';
     if (this._tooltipPngImg && this._tooltipWebpImg) {
       picture = `<picture>
         <source srcset=${this._tooltipWebpImg} type="image/webp">

@@ -1,10 +1,10 @@
-import { CLOSING_HOUR, DELIVERY_TIME_HOURS, OPENING_HOUR } from "./config";
+import { CLOSING_HOUR, DELIVERY_TIME_HOURS, OPENING_HOUR } from './config';
 
 export const state = {
   recipe: {
     ingredients: {
-      "bun-top": {
-        name: "bun-top",
+      'bun-top': {
+        name: 'bun-top',
         quantity: 0,
         calories: 128,
         mass: 46,
@@ -12,15 +12,15 @@ export const state = {
         price: 1,
       },
       bun: {
-        name: "bun",
+        name: 'bun',
         quantity: 0,
         calories: 128,
         mass: 46,
         time: 0.5,
         price: 0.5,
       },
-      "bun-bottom": {
-        name: "bun-bottom",
+      'bun-bottom': {
+        name: 'bun-bottom',
         quantity: 1,
         calories: 128,
         mass: 46,
@@ -28,7 +28,7 @@ export const state = {
         price: 1,
       },
       beef: {
-        name: "beef",
+        name: 'beef',
         quantity: 0,
         calories: 200,
         mass: 85,
@@ -36,7 +36,7 @@ export const state = {
         price: 4.5,
       },
       mayo: {
-        name: "mayo",
+        name: 'mayo',
         quantity: 0,
         calories: 120,
         mass: 5,
@@ -44,7 +44,7 @@ export const state = {
         price: 1.3,
       },
       cheese: {
-        name: "cheese",
+        name: 'cheese',
         quantity: 0,
         calories: 66,
         mass: 21,
@@ -52,7 +52,7 @@ export const state = {
         price: 1,
       },
       tomato: {
-        name: "tomato",
+        name: 'tomato',
         quantity: 0,
         calories: 15,
         mass: 10,
@@ -60,7 +60,7 @@ export const state = {
         price: 1,
       },
       onion: {
-        name: "onion",
+        name: 'onion',
         quantity: 0,
         calories: 10,
         mass: 10,
@@ -68,7 +68,7 @@ export const state = {
         price: 1.1,
       },
       pickle: {
-        name: "pickle",
+        name: 'pickle',
         quantity: 0,
         calories: 10,
         mass: 25,
@@ -76,7 +76,7 @@ export const state = {
         price: 1,
       },
       salad: {
-        name: "salad",
+        name: 'salad',
         quantity: 0,
         calories: 9,
         mass: 5,
@@ -84,27 +84,27 @@ export const state = {
         price: 1,
       },
     },
-    order: ["bun-bottom"],
+    order: ['bun-bottom'],
   },
   favorites: [],
 };
 
-export const addIngredient = function (name) {
-  // If there is a bun on top, then delete it
-  if (state.recipe.order.at(-1) === "bun-top") {
-    deleteIngredient("bun-top");
-  }
-  state.recipe.ingredients[name].quantity += 1;
-  state.recipe.order.push(name);
-};
-
-export const deleteIngredient = function (name) {
+export const deleteIngredient = (name) => {
   state.recipe.ingredients[name].quantity -= 1;
 
   const index = state.recipe.order.findLastIndex((item) => item === name);
   state.recipe.order.splice(index, 1);
 
   return index;
+};
+
+export const addIngredient = (name) => {
+  // If there is a bun on top, then delete it
+  if (state.recipe.order.at(-1) === 'bun-top') {
+    deleteIngredient('bun-top');
+  }
+  state.recipe.ingredients[name].quantity += 1;
+  state.recipe.order.push(name);
 };
 
 export const updateIngredients = function (name, updateTo) {
@@ -123,13 +123,13 @@ export const getTotals = function () {
     },
     { calories: 0, price: 0, time: 0, mass: 0 }
   );
-  totals.completed = state.recipe.order.at(-1) === "bun-top";
+  totals.completed = state.recipe.order.at(-1) === 'bun-top';
   return totals;
 };
 
 export const getDeliveryTimeOptions = function () {
   const timeOptions = [];
-  for (let i = OPENING_HOUR; i <= CLOSING_HOUR; i++) {
+  for (let i = OPENING_HOUR; i <= CLOSING_HOUR; i += 1) {
     const date = new Date();
     date.setHours(i, 0, 0, 0);
     timeOptions.push(date);
