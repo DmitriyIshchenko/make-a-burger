@@ -1,7 +1,15 @@
+<<<<<<< HEAD
 import imagesPng from 'url:../../../img/ingredients/*.png';
 import imagesWebp from 'url:../../../img/ingredients/*.webp';
 import View from '../View';
 
+=======
+import View from '../View';
+
+const imgs = require.context('../../../img/ingredients/', true);
+const imagePath = (name) => imgs(name, true);
+
+>>>>>>> webpack-migration
 class IngredientsView extends View {
   _parentElement = document.querySelector('.ingredients');
 
@@ -30,15 +38,11 @@ class IngredientsView extends View {
     return `
     <div class="card">
       <picture class="card__img-box">
-        <source srcset="${
-          imagesWebp[`${name}-single`] || imagesWebp[name]
-        }" type="image/webp">
-        <source srcset="${
-          imagesPng[`${name}-single`] || imagesPng[name]
-        }" type="image/png">
-        <img class="card__img" src="${
-          imagesPng[`${name}-single`] || imagesPng[name]
-        }" alt="${name}">
+        <source srcset="${imagePath(`./${name}.webp`)}" type="image/webp">
+        <source srcset="${imagePath(`./${name}.png`)}" type="image/png">
+        <img class="card__img" src="${imagePath(
+          `./${name}.png`
+        )}" alt="${name}">
       </picture>
 
       <p class="card__title">${name}</p>

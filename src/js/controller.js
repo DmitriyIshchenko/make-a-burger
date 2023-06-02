@@ -10,6 +10,11 @@ import checkoutFormView from './views/Checkout/checkoutFormView';
 import timeSelectorView from './views/Checkout/timeSelectorView';
 import { TOP_BUN_TIMEOUT_SEC } from './config';
 
+<<<<<<< HEAD
+=======
+import '../sass/main.scss';
+
+>>>>>>> webpack-migration
 const controlUpdateIngredients = (name, updateTo) => {
   const indexToDelete = model.updateIngredients(name, updateTo);
   burgerView.update(model.state.recipe.order, indexToDelete);
