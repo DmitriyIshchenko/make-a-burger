@@ -250,10 +250,10 @@
     </div>
   </main>
 
-  <div class="modal hidden">
-    <div class="modal__content">
+  <dialog class="modal">
+    <div class="modal__wrapper">
       <button type="button" class="modal__close">&times;</button>
-      <form class="form">
+      <form class="form" method="dialog">
         <header class="form__header">
           <svg class="form__header-icon">
             <use href="img/sprite.svg#record"></use>
@@ -308,8 +308,8 @@
         </div>
       </form>
     </div>
-    <div class="modal__backdrop"></div>
-  </div>
+  </dialog>
+
   <footer class="footer">
     <p class="footer__copyright">2022 &copy; Make Your Burger </p>
     <div class="footer__policies">
