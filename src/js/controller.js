@@ -34,25 +34,40 @@ const controlAutoTopBun = () => {
   }, TOP_BUN_TIMEOUT_SEC * 1000);
 };
 
-const controlBurger = (name, updateTo) => {
+const controlBurgerUpdate = (name, updateTo) => {
   clearTimeout(timeoutId);
 
   controlUpdateIngredients(name, updateTo);
   controlAutoTopBun();
 };
 
+const controlCheckout = () => {
+  modalView.update(model.getTotals());
+  timeSelectorView.render(model.getDeliveryTimeOptions());
+};
+
+const controlBurger = () => {
+  burgerView.render(model.state.recipe.order);
+  burgerTooltipView.render();
+  ingredientsView.render(model.state.recipe.ingredients);
+  summaryView.update(model.getTotals());
+};
+
+const controlNavigation = () => {
+  navigationView.addHandlerToggleMobileNav();
+  navigationView.addHandlerToggleTabs();
+};
+
+const controlBurgerDemo = () => {
+  burgerDemoView.addAnimationHandler();
+};
+
 const init = () => {
-  window.addEventListener('load', () => {
-    burgerView.render(model.state.recipe.order);
-    burgerTooltipView.render();
-
-    summaryView.update(model.getTotals());
-    ingredientsView.render(model.state.recipe.ingredients);
-
-    modalView.update(model.getTotals());
-    timeSelectorView.render(model.getDeliveryTimeOptions());
-  });
-  ingredientsView.addHandlerUpdateQuantity(controlBurger);
+  navigationView.addHandlerRender(controlNavigation);
+  burgerDemoView.addHandlerRender(controlBurgerDemo);
+  burgerView.addHandlerRender(controlBurger);
+  checkoutFormView.addHandlerRender(controlCheckout);
+  ingredientsView.addHandlerUpdateQuantity(controlBurgerUpdate);
 };
 
 init();
