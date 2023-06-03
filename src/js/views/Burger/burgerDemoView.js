@@ -5,11 +5,6 @@ class BurgerDemoView extends View {
 
   _animationsCounter = 0;
 
-  constructor() {
-    super();
-    this.addAnimationHandler();
-  }
-
   addAnimationHandler() {
     this._parentElement.addEventListener(
       'animationend',

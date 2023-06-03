@@ -1,15 +1,8 @@
-<<<<<<< HEAD
-import imagesPng from 'url:../../../img/ingredients/*.png';
-import imagesWebp from 'url:../../../img/ingredients/*.webp';
-import View from '../View';
-
-=======
 import View from '../View';
 
 const imgs = require.context('../../../img/ingredients/', true);
 const imagePath = (name) => imgs(name, true);
 
->>>>>>> webpack-migration
 class IngredientsView extends View {
   _parentElement = document.querySelector('.ingredients');
 

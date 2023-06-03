@@ -1,13 +1,7 @@
-<<<<<<< HEAD
-import imagesPng from '../../../img/ingredients/*.png';
-import imagesWebp from '../../../img/ingredients/*.webp';
-import View from '../View';
-=======
 import View from '../View';
 
 const imgs = require.context('../../../img/ingredients/', true);
 const imagePath = (name) => imgs(name, true);
->>>>>>> webpack-migration
 
 class BurgerView extends View {
   _parentElement = document.querySelector('.burger__ingredients');

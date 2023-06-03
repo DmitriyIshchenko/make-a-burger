@@ -1,6 +1,10 @@
 export default class View {
   _data;
 
+  addHandlerRender(handler) {
+    window.addEventListener('load', handler);
+  }
+
   render(data) {
     this._data = data;
 

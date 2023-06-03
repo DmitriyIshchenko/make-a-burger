@@ -7,12 +7,6 @@ class TabView extends View {
 
   _mobileNavBtn = document.querySelector('.mobile-nav-btn');
 
-  constructor() {
-    super();
-    this.addHandlerToggleTabs();
-    this.addHandlerToggleMobileNav();
-  }
-
   addHandlerToggleTabs() {
     [this._burgerParent, this._navParent].forEach((elem) =>
       elem.addEventListener('click', this._toggleTabs.bind(this))
