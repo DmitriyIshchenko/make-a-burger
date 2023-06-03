@@ -7,22 +7,34 @@ class ModalView extends View {
 
   constructor() {
     super();
-    this._addHandlerToggleModal();
+    this.addHandlerOpenModal();
+    this.addHandlerCloseModal();
   }
 
-  _addHandlerToggleModal() {
-    [this._parentElement, this._modalOpenBtn].forEach((item) =>
-      item.addEventListener('click', this._toggleModal.bind(this))
-    );
+  addHandlerOpenModal() {
+    this._modalOpenBtn.addEventListener('click', () => this.openModal());
   }
 
-  _toggleModal(e) {
-    if (
-      e.target.type === 'button' ||
-      e.target.type === 'reset' ||
-      e.target.classList.contains('modal__backdrop')
-    )
-      this._parentElement.classList.toggle('hidden');
+  addHandlerCloseModal() {
+    this._parentElement.addEventListener('click', (e) => {
+      if (
+        e.target.type === 'button' || // close button
+        e.target.type === 'reset' || // reset button
+        e.target === e.currentTarget // backdrop
+      ) {
+        this.closeModal();
+      }
+    });
+  }
+
+  openModal() {
+    this._parentElement.showModal();
+    document.body.classList.toggle('scroll-lock');
+  }
+
+  closeModal() {
+    this._parentElement.close();
+    document.body.classList.toggle('scroll-lock');
   }
 
   update(data) {
