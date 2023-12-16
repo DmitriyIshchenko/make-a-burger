@@ -1,5 +1,4 @@
 import View from '../View';
-import icons from '../../../img/sprite.svg';
 
 class SummaryView extends View {
   _parentElement = document.querySelector('.summary');
@@ -15,17 +14,17 @@ class SummaryView extends View {
     <div class="summary__details">
       <div>
         <svg class="summary__icon summary__icon--time">
-          <use href="${icons}#time"></use>
+          <use href="src/img/sprite.svg#time"></use>
         </svg>
         <span>${this._data.time} min</span></div>
       <div>
         <svg class="summary__icon summary__icon--mass">
-          <use href="${icons}#scales"></use>
+          <use href="src/img/sprite.svg#scales"></use>
         </svg>
         <span>${this._data.mass} g</span></div>
       <div>
         <svg class="summary__icon summary__icon--fire">
-          <use href="${icons}#fire"></use>
+          <use href="src/img/sprite.svg#fire"></use>
         </svg>
         <span>${this._data.calories} kcal</span></div>
     </div>
