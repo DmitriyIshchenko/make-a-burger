@@ -1,8 +1,5 @@
 import View from '../View';
 
-const imgs = require.context('../../../img/ingredients/', true);
-const imagePath = (name) => imgs(name, true);
-
 class BurgerView extends View {
   _parentElement = document.querySelector('.burger__ingredients');
 
@@ -56,9 +53,9 @@ class BurgerView extends View {
     return `
     <picture class="burger__ingredient burger__ingredient--${ing}"
      style="bottom:${index * 5}%" >
-      <source srcset="${imagePath(`./${ing}.webp`)}" type='image/webp'>
-      <source srcset="${imagePath(`./${ing}.png`)}" type='image/png'>
-      <img src="${imagePath(`./${ing}.png`)}" alt="${ing}" />
+      <source srcset="src/img/ingredients/${ing}.webp" type='image/webp'>
+      <source srcset="src/img/ingredients/${ing}.png" type='image/png'>
+      <img src="src/img/ingredients/${ing}.png" alt="${ing}" />
     </picture>
     `;
   }
