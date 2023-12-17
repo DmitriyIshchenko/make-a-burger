@@ -5,6 +5,12 @@ export default class View {
     window.addEventListener('load', handler);
   }
 
+  mount() {
+    this._container = this._createContainer();
+    const parent = document.querySelector(this._parentSelector);
+    parent.append(this._container);
+  }
+
   render(data) {
     this._data = data;
 
@@ -12,7 +18,7 @@ export default class View {
 
     this._clear();
 
-    this._parentElement.insertAdjacentHTML('afterbegin', markup);
+    this._container.insertAdjacentHTML('afterbegin', markup);
   }
 
   // changes only text and attributes
@@ -26,7 +32,7 @@ export default class View {
 
     // convert NodeLists to arrays
     const newElements = Array.from(newDOM.querySelectorAll('*'));
-    const curElements = Array.from(this._parentElement.querySelectorAll('*'));
+    const curElements = Array.from(this._container.querySelectorAll('*'));
 
     /* 
       Compare both DOMS and update only elements containing text.
@@ -48,6 +54,6 @@ export default class View {
   }
 
   _clear() {
-    this._parentElement.innerHTML = '';
+    this._container.innerHTML = '';
   }
 }
